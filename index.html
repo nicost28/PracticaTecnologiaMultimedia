@@ -8,6 +8,11 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+
   <!-- Favicons -->
   <link href="assets/img/mallorcaAsiatico.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -134,20 +139,15 @@
             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
           </div>
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <h3>Sumérgete en una aventura asiatico-mallorquina</h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              Mediterráneo y Asia se unen para mostrar una experiencia gastronómica única en una isla donde los aromas del mar, las especias exóticas y los ingredientes frescos se combinan en platos que deleitan los sentidos. 
             </p>
             <ul>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Conoce nuevos restaurantes asiáticos.</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>Descubre sitios cerca de tu casa</span></li>
+              <li><i class="bi bi-check2-all"></i> <span>¡A comer!</span></li>
             </ul>
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
-            </p>
           </div>
         </div>
 
@@ -155,46 +155,32 @@
 
     </section><!-- /About Section -->
 
+
+
+
     <!-- Why Us Section -->
     <section id="why-us" class="why-us section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Why Us</h2>
-        <div><span>Selecciona el tipo</span> <span class="description-title">de comida</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <span>01</span>
-              <h4><a href="" class="stretched-link">Japonés</a></h4>
-              <p>Disfruta de sabores frescos y equilibrados, desde sushi y sashimi hasta ramen y tempura.</p>
-            </div>
-          </div><!-- Card Item -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <span>02</span>
-              <h4><a href="" class="stretched-link">Chino</a></h4>
-              <p>Explora una explosión de sabores con platos como dumplings, arroz frito, cerdo agridulce y chop suey.</p>
-            </div>
-          </div><!-- Card Item -->
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>03</span>
-              <h4><a href="" class="stretched-link">Tailandés</a></h4>
-              <p>Sabores vibrantes y aromáticos con currys picantes, pad thai, tom yum y frescos ingredientes tropicales. </p>
-            </div>
-          </div><!-- Card Item -->
-
+        <!-- Título añadido -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Mapa de Restaurantes</h2>
+          <div><span>Descubre los mejores</span> <span class="description-title">sabores asiáticos</span></div>
         </div>
 
-      </div>
+
+      <div id="mi_mapa" style="width: 90%; height: 400px;"></div>
+
+      <script> 
+        let map = L.map('mi_mapa').setView([39.64213, 2.97582], 9)
+      </script>
+
+      <script> 
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map)
+      </script>
+
+    
 
     </section><!-- /Why Us Section -->
 

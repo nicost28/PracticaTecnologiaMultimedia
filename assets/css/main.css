@@ -292,8 +292,23 @@ h6 {
   line-height: 1;
 }
 
+.map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; /* Altura completa de la ventana */
+  margin: 0;
+}
+
+#mi_mapa {
+  width: 95%;
+  height: 90vh;
+  margin: auto;
+}
+
 .header .logo img {
-  max-height: 100px;
+  max-height: 130px;
   margin-right: 8px;
 }
 
