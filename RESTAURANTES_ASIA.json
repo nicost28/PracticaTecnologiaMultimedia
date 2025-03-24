@@ -1,0 +1,709 @@
+{
+   "@context": "https://schema.org",
+   "@type": "Restaurant",
+   "restaurants": [
+      {
+         "name": "Dragon Sushi",
+         "url": "https://www.dragonsushi.online",
+         "telephone": "+34 871 77 03 95",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrer de Blanquerna, 15",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07003",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57447,
+            "longitude": 2.64801
+         }
+      },
+      {
+         "name": "Made in China",
+         "url": "https://www.restaurantemadeinchina.com",
+         "telephone": "+34 971 40 34 34",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avinguda de Joan Miró, 324",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07015",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57527,
+            "longitude": 2.64177
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "12:30",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "19:30",
+               "closes": "23:30"
+            }
+         ]
+      },
+      {
+         "name": "Koma Sushi & Asian Food",
+         "url": "https://www.komasushi.es/",
+         "telephone": "+34 674 252 353",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Tucán, 1, Ático (Banana Club)",
+            "addressLocality": "Port d’Alcúdia",
+            "postalCode": "07400",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.83975,
+            "longitude": 3.12061
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "19:00",
+               "closes": "23:30"
+            }
+         ]
+      },
+      {
+         "name": "Mango Thai",
+         "url": "https://www.mangothai.es/",
+         "telephone": "+34 971 545 752",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Pins 9",
+            "addressLocality": "Port d'Alcúdia",
+            "postalCode": "07400",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.84209,
+            "longitude": 3.13481
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "18:00",
+               "closes": "23:30"
+            }
+         ]
+      },
+      {
+         "name": "Sibuya Urban Sushi Bar",
+         "url": "https://sibuyaurbansushibar.com/restaurante-japones-mallorca/",
+         "telephone": "+34 871 62 09 20",
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "CC Mallorca Fashion Outlet A Palma-Inca. Salida 8",
+           "addressLocality": "Palma de Mallorca",
+           "postalCode": "07141",
+           "addressCountry": "ES"
+         },
+         "geo": {
+           "@type": "GeoCoordinates",
+           "latitude": 39.6338,
+           "longitude": 2.7317
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "opens": "13:00",
+             "closes": "16:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday",
+               "Sunday"
+             ],
+             "opens": "19:00",
+             "closes": "23:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Friday",
+               "Saturday"
+             ],
+             "opens": "19:00",
+             "closes": "23:30"
+           }
+         ]
+       },
+
+       {
+         "name": "Harajuku Gastro Sushi",
+         "url": "https://harajukupalma.com/",
+         "telephone": "+34 871 270 056",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrer de Joan Crespí, 36",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07014",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57617,
+            "longitude": 2.63479
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "13:00",
+               "closes": "15:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday"
+               ],
+               "opens": "19:30",
+               "closes": "23:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "19:30",
+               "closes": "23:30"
+            }
+         ]
+      },
+
+      {
+         "name": "UDON Fan",
+         "url": "https://www.udon.com/restaurante/udon-fan",
+         "telephone": "+34 871 03 16 85",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Camí Nou de son Banya, 168 CC. Fan Mallorca Shopping",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07007",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.55387,
+            "longitude": 2.70598
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "12:00",
+               "closes": "23:30"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Sunday"
+               ],
+               "opens": "13:00",
+               "closes": "17:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Sunday"
+               ],
+               "opens": "19:30",
+               "closes": "23:30"
+            }
+         ]
+      },
+
+      {
+         "name": "Ramen Otaku",
+         "url": "https://www.ramenotaku.com.es/",
+         "telephone": "+34 871 02 25 18",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrer de la Volta de la Mercè, 2",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07002",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57276,
+            "longitude": 2.65443
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "opens": "13:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "opens": "19:30",
+               "closes": "23:00"
+            }
+         ]
+      },
+
+      {
+         "name": "Kasui Restaurante",
+         "url": "https://kasuirestaurante.com/",
+         "telephone": "+34 971 677 780",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Plaza Raimundo Clar, 6",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07002",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57100,
+            "longitude": 2.65521
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "opens": "13:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "opens": "19:00",
+               "closes": "23:00"
+            }
+         ]
+      },
+
+      {
+         "name": "Restaurante Chino Wawa",
+         "url": "https://www.tripadvisor.es/Restaurant_Review-g187463-d1001277-Reviews-Restaurante_chino_Wawa-Palma_de_Mallorca_Majorca_Balearic_Islands.html",
+         "telephone": "+34 971 75 80 78",
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "Avenida Tomas de Villanueva Cortes 6",
+           "addressLocality": "Palma de Mallorca",
+           "postalCode": "07004",
+           "addressCountry": "ES"
+         },
+         "geo": {
+           "@type": "GeoCoordinates",
+           "latitude": 39.5889882512111,
+           "longitude": 2.663779205555114
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "opens": "12:00",
+             "closes": "16:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Thursday"
+             ],
+             "opens": "19:00",
+             "closes": "23:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "opens": "19:30",
+             "closes": "23:30"
+           }
+         ]
+       },
+
+       {
+         "name": "Sushi Ninja Inca",
+         "url": "https://www.just-eat.es/restaurants-sushi-ninja-inca-inca/menu",
+         "telephone": "+34 971 667 595",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avinguda del General Luque, 375",
+            "addressLocality": "Inca",
+            "postalCode": "07300",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.71333,
+            "longitude": 2.90373
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "13:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "20:00",
+               "closes": "00:00"
+            }
+         ]
+      },
+
+
+      {
+         "name": "Hatsukokoro",
+         "url": "https://www.just-eat.es/ca/restaurants-hatsukokoro-palma/menu",
+         "telephone": "871 61 12 67",
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": " C/ de l'Arxiduc Lluís Salvador, 3bajo",
+           "addressLocality": "Palma de Mallorca",
+           "postalCode": "07004",
+           "addressCountry": "ES"
+         },
+         "geo": {
+           "@type": "GeoCoordinates",
+           "latitude": 39.5777,
+           "longitude": 2.6528
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday"
+             ],
+             "opens": "13:00",
+             "closes": "16:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "opens": "13:00",
+             "closes": "16:30"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Tuesday",
+               "Wednesday",
+               "Thursday",
+               "Sunday"
+             ],
+             "opens": "19:30",
+             "closes": "23:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Friday",
+               "Saturday"
+             ],
+             "opens": "19:30",
+             "closes": "00:00"
+           }
+         ]
+       },
+
+
+       {
+         "name": "La India",
+         "url": "https://www.tripadvisor.es/Restaurant_Review-g580304-d2233694-Reviews-La_India-Manacor_Majorca_Balearic_Islands.html",
+         "telephone": "+34 971 844 365",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Plaça Sant Jaume, 17",
+            "addressLocality": "Manacor",
+            "postalCode": "07500",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.57142,
+            "longitude": 3.20643
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "12:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "19:00",
+               "closes": "00:00"
+            }
+         ]
+      },
+
+
+
+      {
+         "name": "Kho Thai",
+         "url": "https://www.tripadvisor.es/Restaurant_Review-g187463-d12403112-Reviews-Kho_Thai-Palma_de_Mallorca_Majorca_Balearic_Islands.html",
+         "telephone": "+34 602 42 06 16",
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "Cami de la Vileta, 123",
+           "addressLocality": "Sa Vileta-Son Rapinya",
+           "postalCode": "07011",
+           "addressCountry": "ES"
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday"
+             ],
+             "opens": "13:00",
+             "closes": "15:30"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday"
+             ],
+             "opens": "19:30",
+             "closes": "23:00"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Tuesday"
+             ],
+             "opens": "19:30",
+             "closes": "23:00"
+           }
+         ]
+       },
+
+       {
+         "name": "Restaurante Perla Brillante",
+         "url": "https://glovoapp.com/es/ca/manacor/restaurante-perla-brillante-manacor/",
+         "telephone": "+34 971 843 403",
+         "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carrer d'en Sebastià Rubí, 15",
+            "addressLocality": "Manacor",
+            "postalCode": "07500",
+            "addressCountry": "ES"
+         },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.56708,
+            "longitude": 3.21313
+         },
+         "openingHoursSpecification": [
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "12:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "opens": "19:30",
+               "closes": "23:00"
+            }
+         ]
+      },
+
+
+      {
+         "name": "May Sun",
+         "url": "https://visit-andratx.com/ca/restaurante-may-sun/",
+         "telephone": "+34 971 67 40 83",
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "Av. Mateo Bosch, 25",
+           "addressLocality": "Port d'Andratx",
+           "postalCode": "07157",
+           "addressCountry": "ES"
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday",
+               "Tuesday"
+             ],
+             "opens": "12:00",
+             "closes": "16:30"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Monday",
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday",
+               "Tuesday"
+             ],
+             "opens": "18:00",
+             "closes": "00:00"
+           }
+         ]
+       },
+
+       {
+         "name": "Dawei",
+         "url": "https://www.daweillucmajor.es/",
+         "telephone": null,
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "Ronda de Migjorn, 72",
+           "addressLocality": "Llucmajor",
+           "postalCode": "07620",
+           "addressCountry": "ES"
+         },
+         "geo": {
+           "@type": "GeoCoordinates",
+           "latitude": 39.48818,
+           "longitude": 2.88448
+         },
+         "openingHoursSpecification": [
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday",
+               "Tuesday"
+             ],
+             "opens": "12:00",
+             "closes": "16:30"
+           },
+           {
+             "@type": "OpeningHoursSpecification",
+             "dayOfWeek": [
+               "Wednesday",
+               "Thursday",
+               "Friday",
+               "Saturday",
+               "Sunday",
+               "Tuesday"
+             ],
+             "opens": "19:00",
+             "closes": "23:30"
+           }
+         ]
+       }
+
+      ]
+   }
+
+   
+   
+   
+

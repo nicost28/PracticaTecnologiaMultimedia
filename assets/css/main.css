@@ -1684,3 +1684,36 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+
+/*--------------------------------------------------------------
+# RESTAURANTES
+--------------------------------------------------------------*/
+
+
+/* Estilos específicos para la tarjeta de restaurante */
+.restaurant-card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilos específicos para la imagen del restaurante */
+.restaurant-card .restaurant-image {
+  width: 100px; /* Ajusta el ancho deseado */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Versión móvil - Ajustar el tamaño de la imagen */
+@media (max-width: 768px) {
+  .restaurant-card .restaurant-image {
+    width: 100%; /* La imagen ocupará el ancho completo del contenedor */
+    height: auto;
+  }
+}

@@ -35,3 +35,27 @@ h2 {
     transform: translateY(-5px);
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
 }
+
+.restaurant-info i {
+    color: #6c757d;
+    margin-right: 0.5rem;
+  }
+  
+  .card {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilos para la imagen del restaurante */
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+  
+  /* Ajustes responsive para móviles */
+  @media (max-width: 768px) {
+    .card-img-top {
+      height: 200px;
+    }
+  }
