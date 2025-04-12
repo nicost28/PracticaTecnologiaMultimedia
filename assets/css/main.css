@@ -292,21 +292,31 @@ h6 {
   line-height: 1;
 }
 
-.map-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh; /* Altura completa de la ventana */
-  margin: 0;
+/* Estilo para el título */
+.map-title {
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #2a2a2a;
+  text-align: center;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Ajustes para el mapa */
 #mi_mapa {
   width: 95%;
-  height: 90vh;
-  margin: auto;
+  height: 75vh; /* Reducimos un poco la altura */
+  margin: 100px auto 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid #fff;
 }
 
+/* Opcional: Añadir espacio superior a la sección */
+#why-us {
+  padding-top: 40px;
+}
 .header .logo img {
   max-height: 130px;
   margin-right: 8px;
@@ -769,24 +779,41 @@ section,
 # Global Section Titles
 --------------------------------------------------------------*/
 .section-title {
+  /* Centrar el contenido horizontal y verticalmente */
   text-align: center;
   padding-bottom: 60px;
   position: relative;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
 
 .section-title h2 {
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: 700;
-  padding: 8px 20px;
-  margin: 0;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
-  display: inline-block;
-  text-transform: uppercase;
-  border-radius: 50px;
-  font-family: var(--default-font);
+  margin: 0; 
+  font-family: 'Satisfy', cursive; /* Ajusta la fuente a la cursiva que desees */
+  font-size: 3rem;               /* Tamaño grande */
+  font-weight: 700;             /* Negrita */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* Eliminamos text-transform y border-bottom para imitar la imagen */
+  /* Eliminamos letter-spacing para que sea más fluido */
 }
+
+.section-title h2 .palabra-izq {
+  color: #ffb03b; /* Naranja */
+  margin-right: 8px; /* Separación entre las dos palabras */
+}
+
+.section-title h2 .palabra-der {
+  color: #ffffff; /* Blanco */
+}
+
+
+
+h2 {
+  position: absolute !important;
+  top: 10px !important;
+}
+
 
 .section-title div {
   color: var(--heading-color);
@@ -803,6 +830,44 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+
+/* ====== ESTILOS DEL VIDEO ====== */
+/* ====== ESTILOS DEL VIDEO ====== */
+.video-overlay {
+  position: absolute;
+  top: 59%; /* Posición más baja */
+  left: 50%;
+  transform: translate(-50%, -40%); /* Ajuste vertical */
+  z-index: 2; /* Z-index menor que el título */
+  width: 50vw;
+  height: 50vh;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 3px solid black !important;
+}
+
+/* Asegurar que el título tenga mayor z-index */
+.hero .carousel-container {
+  position: absolute;
+  inset: 90px 64px 64px 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3; /* Mayor que el video */
+}
+
+
+
+
+
+
 .hero {
   padding: 0;
 }
@@ -1046,99 +1111,28 @@ section,
   color: var(--contrast-color);
 }
 
-/*--------------------------------------------------------------
-# Menu Section
---------------------------------------------------------------*/
-.menu .menu-filters {
-  padding: 0;
-  margin: 0 auto;
-  list-style: none;
-  text-align: center;
-  border-radius: 50px;
-}
-
-.menu .menu-filters li {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 10px;
-  cursor: pointer;
-  display: inline-block;
-  padding: 8px 12px 10px 12px;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1;
-  transition: all ease-in-out 0.3s;
-  font-family: var(--heading-font);
-}
-
-.menu .menu-filters li:hover,
-.menu .menu-filters li.filter-active {
-  color: var(--accent-color);
-}
-
-.menu .menu-filters li:last-child {
-  margin-right: 0;
-}
-
-.menu .menu-item {
-  margin-top: 50px;
-  position: relative;
-}
-
-.menu .menu-img {
-  width: 80px;
-  border-radius: 50%;
-  float: left;
-  border: 8px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.menu .menu-content {
-  margin-left: 95px;
+/* Estilos para la tarjeta del restaurante */
+.restaurant-card {
+  height: 250px; /* Altura fija para la tarjeta */
   overflow: hidden;
+  position: relative;
+}
+
+.image-container {
+  height: 100%;
+  border-left: 1px solid #eee;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-body {
+  padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.menu .menu-content::after {
-  content: "......................................................................" "...................................................................." "....................................................................";
-  position: absolute;
-  left: 20px;
-  right: 0;
-  top: -4px;
-  z-index: 1;
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-}
-
-.menu .menu-content a {
-  color: var(--heading-color);
-  background: var(--background-color);
-  padding-right: 10px;
-  position: relative;
-  z-index: 3;
-  font-weight: 700;
-  transition: 0.3s;
-}
-
-.menu .menu-content a:hover {
-  color: var(--accent-color);
-}
-
-.menu .menu-content span {
-  background: var(--background-color);
-  color: var(--accent-color);
-  position: relative;
-  z-index: 3;
-  padding: 0 10px;
-  font-weight: 600;
-}
-
-.menu .menu-ingredients {
-  margin-left: 95px;
-  font-style: italic;
-  font-size: 14px;
-  font-family: var(--nav-font);
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  flex-direction: column;
+  justify-content: center;
 }
 
 /*--------------------------------------------------------------

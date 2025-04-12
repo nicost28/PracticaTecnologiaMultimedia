@@ -115,6 +115,9 @@
     });
   });
 
+
+
+
   /**
    * Initiate glightbox
    */
@@ -213,5 +216,25 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+
+
+
+
+// Forzar reproducción incluso si el navegador bloquea el autoplay
+document.addEventListener("DOMContentLoaded", function() {
+  const video = document.querySelector(".video-container video");
+  
+  if (video) {
+    // Intentar reproducir automáticamente
+    video.play().catch(error => {
+      // Si falla, mostrar controles y permitir reproducción manual
+      video.controls = true;
+      console.error("Error de autoplay:", error);
+    });
+  }
+});
+
+
 
 })();
