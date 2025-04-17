@@ -1,0 +1,91 @@
+.login-container {
+    max-width: 320px;
+    margin: 80px auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.login-container h2 {
+    color: #ff7f11;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.login-form .input-group {
+    margin-bottom: 1rem;
+}
+
+.login-form .input-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-form .input-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.login-form .input-group input:focus {
+    border-color: #ff7f11;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #ff7f11;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #e86c00;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.signup-link a {
+    color: #ff7f11;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.avatar-preview {
+    width: 80px;
+    height: 80px;
+    background-color: #ff7f11;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    background-size: cover;
+    background-position: center;
+}
+
+.avatar-preview span {
+    display: block;
+}
