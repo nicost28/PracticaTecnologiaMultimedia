@@ -41,25 +41,72 @@
         const avatarPreview = document.getElementById('avatarPreview');
         const avatarInitial = document.getElementById('avatarInitial');
 
+        // Cambiar la inicial del avatar según el nombre de usuario
         usernameInput.addEventListener('input', () => {
             const name = usernameInput.value.trim();
             avatarInitial.textContent = name ? name.charAt(0).toUpperCase() : '?';
         });
 
+        // Mostrar la imagen seleccionada como fondo del avatar
         imageInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
+
             if (file) {
                 const reader = new FileReader();
                 reader.onload = e => {
                     avatarPreview.style.backgroundImage = `url('${e.target.result}')`;
-                    avatarInitial.style.display = 'none';
+                    avatarInitial.style.display = 'none'; // Oculta la inicial
                 };
                 reader.readAsDataURL(file);
             } else {
-                avatarPreview.style.backgroundImage = 'none';
-                avatarInitial.style.display = 'block';
+                avatarPreview.style.backgroundImage = 'none'; // Quita la imagen de fondo
+                avatarInitial.style.display = 'block'; // Muestra la inicial
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const imageFile = document.getElementById('image').files[0];
+        
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                const userData = {
+                    username: username,
+                    password: password, // ⚠️ aún sin cifrar, cuidado en producción
+                    avatar: reader.result || null,
+                    registeredAt: new Date().toISOString()
+                };
+        
+                fetch('update_users.php', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(userData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        window.location.href = "login.html";
+                    } else if (data.error) {
+                        alert(data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error en el registro:", error);
+                    alert("Ocurrió un error al registrar. Inténtalo de nuevo.");
+                });
+            };
+        
+            if (imageFile) {
+                reader.readAsDataURL(imageFile);
+            } else {
+                reader.onloadend();
             }
         });
     </script>
+        
 </body>
 </html>
