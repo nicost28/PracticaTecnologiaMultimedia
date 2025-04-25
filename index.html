@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- =========================================
+     SECCIÓN: HEAD - Metadatos y Estilos
+     ========================================= -->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -8,28 +11,27 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Leaflet -->
+  <!-- Leaflet - Librería de mapas -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-
 
   <!-- Favicons -->
   <link href="assets/img/mallorcaAsiatico.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  <!-- CSS de Vendor -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- CSS Principal -->
   <link href="assets/css/main.css" rel="stylesheet">
 
   <!-- =======================================================
@@ -41,474 +43,509 @@
   ======================================================== -->
 </head>
 
+<!-- =========================================
+     SECCIÓN: BODY - Inicio de contenido
+     ========================================= -->
 <body class="index-page">
 
+  <!-- =========================================
+       SECCIÓN: HEADER - Navegación principal
+       ========================================= -->
   <header id="header" class="header fixed-top">
-
     <div class="branding d-flex align-items-cente">
-
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- Logo de la marca -->
           <img src="assets/img/mallorcaAsiatico.png" alt="">
         </a>
 
+        <!-- Menú de navegación -->
         <nav id="navmenu" class="navmenu">
           <ul>
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="login.html">Iniciar Sesión</a></li>
-
-            <!-- Botón Mapa - Enlaza a la sección del mapa -->
             <li><a href="#why-us">Mapa</a></li>
-            <!-- Botón Lista Restaurantes - Enlaza a la sección de restaurantes -->
             <li><a href="#restaurantes">Lista Restaurantes</a></li>
-            </li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
       </div>
-
     </div>
-
   </header>
 
+  <!-- =========================================
+       SECCIÓN: MAIN - Contenido principal
+       ========================================= -->
   <main class="main">
 
-    <!-- Hero Section -->
+    <!-- =========================================
+         SUBSECCIÓN: Hero - Carrusel e introducción
+         ========================================= -->
     <section id="hero" class="hero section dark-background">
-
       <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-    
+
+        <!-- Item del carrusel activo -->
         <div class="carousel-item active">
           <img src="assets/img/hero-carousel/asiatico-carrusel1.jpg" alt="">
           <div class="carousel-container">
             <h2><span>Mallorca</span> Asiático</h2>
           </div>
         </div><!-- End Carousel Item -->
-    
+
+        <!-- Más items del carrusel -->
         <div class="carousel-item">
           <img src="assets/img/hero-carousel/hero-carousel-1.jpg" alt="">
           <div class="carousel-container">
             <h2><span>Mallorca</span> Asiático</h2>
           </div>
         </div><!-- End Carousel Item -->
-    
+
         <div class="carousel-item">
           <img src="assets/img/hero-carousel/hero-carousel-2.jpg" alt="">
           <div class="carousel-container">
             <h2><span>Mallorca</span> Asiático</h2>
           </div>
         </div><!-- End Carousel Item -->
-    
+
+        <!-- Controles del carrusel -->
         <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
         </a>
-    
         <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
-    
         <ol class="carousel-indicators"></ol>
-    
+
         <!-- Video superpuesto -->
         <div class="video-overlay">
           <video class="hero-video" autoplay muted playsinline loop controls>
             <source src="assets/img/hero-videos/video1.mp4" type="video/mp4">
             <source src="assets/img/hero-videos/video2.mp4" type="video/mp4">
-
           </video>
         </div>
-    
-      </div>
-    
-    </section>
 
+      </div>
     </section><!-- /Hero Section -->
 
-
-    
-
-    
+  
 
 
-<!-- Why Us Section Actualizada -->
+<!-- =========================================
+     SUBSECCIÓN: Mapa 
+========================================= -->
 <section id="why-us" class="why-us section">
+  <div class="container section-title" data-aos="fade-up" style="position: relative;">
+    <!-- Título separado del mapa -->
+    <h2 style="margin-bottom: 40px;">
+      <span class="palabra-izq">Mapa de</span>
+      <span class="palabra-der">Restaurantes</span>
+    </h2>
 
-  <!-- Título -->
-  <!-- Título -->
-<div class="container section-title" data-aos="fade-up">
-  <h2>
-    <span class="palabra-izq">Mapa de</span>
-    <span class="palabra-der">Restaurantes</span>
-  </h2>
-</div>
+    <!-- Botón alineado a la derecha absoluta -->
+    <button id="filtro-michelin" 
+            class="btn btn-sm btn-outline-danger"
+            style="position: absolute; top: 0; right: 0;"
+            onclick="cambiarTipoRestaurantes()">
+      Ver restaurantes Estrella Michelin
+    </button>
+  </div>
 
-  <!-- Contenedor del Mapa -->
-  <div id="mi_mapa" style="width: 90%; height: 600px; margin: 20px auto; border-radius: 15px;"></div>
+  <!-- Mapa centrado y con separación suficiente -->
+  <div id="mi_mapa" style="width: 90%; height: 600px; margin: 30px auto 20px auto; border-radius: 15px;"></div>
 
-  <!-- Scripts del Mapa -->
   <script>
-    // Variables globales
     const ORS_API_KEY = '5b3ce3597851110001cf6248e49a52899cc74f529a099cb78fdb53b0';
     const defaultCoords = [39.64213, 2.97582];
-    const dragonSushiCoords = [39.57447, 2.64801];
+    
     let map, userMarker, routeLayer;
+    let activeRouteButton = null;
+    let currentMarkers = [];
+    let showingMichelin = false;
 
-    // Inicialización del mapa
-    function initMap(coords = defaultCoords) {
-      if(map) map.remove();
-      
-      map = L.map('mi_mapa').setView(coords, 12);
-      
-      // Capa base
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-      
-      // Marcador Dragon Sushi
-      L.marker(dragonSushiCoords)
-        .addTo(map)
-        .bindPopup(`
-          <b>Dragon Sushi</b><br>
-          <button onclick="calculateRoute()" class="btn-route">
-            🚗 Calcular ruta
-          </button>
-        `)
-        .openPopup();
-    }
-
-    // Función para solicitar ubicación
-    function requestLocation() {
-  if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const userCoords = [
-          position.coords.latitude, 
-          position.coords.longitude
-        ];
-        
-        console.log('Coordenadas reales obtenidas:', userCoords);
-        
-        // Guardar en localStorage
-        localStorage.setItem('userLocation', JSON.stringify(userCoords));
-        
-        // Si el mapa ya existe
-        if(map) {
-          // Solo actualizar posición y añadir marcador
-          map.setView(userCoords, 16);
-          
-          // Eliminar marcador anterior si existe
-          if(userMarker) map.removeLayer(userMarker);
-          
-          userMarker = L.marker(userCoords)
-            .addTo(map)
-            .bindPopup('<b>Tu ubicación actual</b>')
-            .openPopup();
-            
-        } else {
-          // Si el mapa no existe, inicializarlo
-          initMap(userCoords);
-          map.setView(userCoords, 16);
-        }
-      },
-      error => {
-        console.error('Error de geolocalización:', error);
-        if(!map) initMap();
-        alert('¡Permiso necesario para geolocalización!');
-      },
-      {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0
-      }
-    );
-  } else {
-    alert('Tu navegador no soporta geolocalización');
-    if(!map) initMap();
-  }
-}
-
-
-
-    // Calcular ruta (usando OpenRouteService)
-    async function calculateRoute() {
-  try {
-    // 1. Verificar ubicación guardada
-    const userCoords = JSON.parse(localStorage.getItem('userLocation'));
-    if (!userCoords) {
-      alert('Primero activa tu ubicación desde el botón "🗺️ Activar mi ubicación"');
-      return;
-    }
-
-    // 2. Validar formato de coordenadas (lon,lat)
-    const start = `${userCoords[1]},${userCoords[0]}`; // Formato correcto: longitud,latitud
-    const end = `${dragonSushiCoords[1]},${dragonSushiCoords[0]}`;
-
-    // 3. Construir URL con API key válida
-    const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${start}&end=${end}`;
-
-    // 4. Hacer petición con manejo CORS
-    const response = await fetch(url, {
-      mode: 'cors', // Necesario para evitar bloqueos del navegador
-      headers: {
-        'Accept': 'application/json, application/geo+json'
-      }
+    const redIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34]
     });
 
-    // 5. Verificar respuesta HTTP
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(`API Error ${response.status}: ${errorData.error?.message || 'Error desconocido'}`);
+    function initMap(coords = defaultCoords) {
+      if (map) map.remove();
+      map = L.map('mi_mapa').setView(coords, 12);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     }
 
-    // 6. Procesar datos de la ruta
-    const data = await response.json();
-    if (!data.features?.length) throw new Error('No se encontraron rutas');
+    async function cargarRestaurantesEnMapa() {
+      try {
+        const path = showingMichelin 
+          ? 'OtrosJSON/restaurantesMichellin.json' 
+          : 'RESTAURANTES_ASIA.json';
+        
+        const resp = await fetch(path);
+        const data = await resp.json();
+        
+        currentMarkers.forEach(marker => map.removeLayer(marker));
+        currentMarkers = [];
 
-    // 7. Dibujar ruta en el mapa
-    if (routeLayer) map.removeLayer(routeLayer);
-    routeLayer = L.geoJSON(data.features[0], {
-      style: {color: '#FF6B6B', weight: 5}
-    }).addTo(map);
+        const restaurantes = showingMichelin 
+          ? data.itemListElement.map(item => item.item) 
+          : data.restaurants;
 
-    // 8. Ajustar vista del mapa
-    map.fitBounds(routeLayer.getBounds());
+        restaurantes.forEach(r => {
+          if (r.geo && r.geo.latitude && r.geo.longitude) {
+            const coords = [
+              parseFloat(r.geo.latitude), 
+              parseFloat(r.geo.longitude)
+            ];
+            
+            const marker = L.marker(coords).addTo(map);
+            currentMarkers.push(marker);
 
-  } catch (error) {
-    console.error('Error completo:', error);
-    alert(`🚨 Error crítico: ${error.message}`);
-    // Opcional: Mostrar detalles técnicos en consola
-  }
-}
+            marker.bindPopup(`
+              <b>${r.name}</b><br>
+              ${showingMichelin ? `⭐ ${r.award}<br>` : ''}
+              <button class="btn-route" 
+                      data-coords='${JSON.stringify(coords)}'
+                      onclick="handleRouteButton(this)">
+                🚗 Calcular ruta
+              </button>
+            `);
+          }
+        });
 
-    // Evento al cargar la página
+      } catch (err) {
+        alert("Error cargando restaurantes: " + err.message);
+      }
+    }
+
+    function cambiarTipoRestaurantes() {
+      showingMichelin = !showingMichelin;
+      document.getElementById('filtro-michelin').textContent = showingMichelin
+        ? 'Ver restaurantes asiáticos'
+        : 'Ver restaurantes Estrella Michelin';
+      
+      cargarRestaurantesEnMapa();
+    }
+
+    function handleRouteButton(button) {
+      const destinationCoords = JSON.parse(button.dataset.coords);
+
+      if (button.textContent.includes('Calcular')) {
+        calculateRoute(destinationCoords, button);
+      } else {
+        clearRoute(button);
+      }
+    }
+
+    async function calculateRoute(destinationCoords, button) {
+      try {
+        const userCoords = JSON.parse(localStorage.getItem('userLocation'));
+        if (!userCoords) {
+          alert('¡Primero activa tu ubicación!');
+          return;
+        }
+
+        if (activeRouteButton) clearRoute(activeRouteButton);
+
+        const start = `${userCoords[1]},${userCoords[0]}`;
+        const end = `${destinationCoords[1]},${destinationCoords[0]}`;
+
+        const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${start}&end=${end}`;
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (routeLayer) map.removeLayer(routeLayer);
+        routeLayer = L.geoJSON(data.features[0], {
+          style: { color: '#FF6B6B', weight: 5 }
+        }).addTo(map);
+
+        map.fitBounds(routeLayer.getBounds());
+        button.textContent = '🗺️ Dejar de ver ruta';
+        activeRouteButton = button;
+
+      } catch (error) {
+        alert(`Error calculando la ruta: ${error.message}`);
+      }
+    }
+
+    function clearRoute(button) {
+      if (routeLayer) {
+        map.removeLayer(routeLayer);
+        routeLayer = null;
+      }
+      button.textContent = '🚗 Calcular ruta';
+      activeRouteButton = null;
+    }
+
+    function handleGeolocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const userCoords = [position.coords.latitude, position.coords.longitude];
+            localStorage.setItem('userLocation', JSON.stringify(userCoords));
+
+            if (userMarker) map.removeLayer(userMarker);
+            userMarker = L.marker(userCoords, { icon: redIcon })
+              .addTo(map)
+              .bindPopup('<b>Tu ubicación actual</b>')
+              .openPopup();
+
+            map.setView(userCoords, 16);
+          },
+          () => alert('¡Necesitamos tu ubicación para calcular rutas!')
+        );
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       initMap();
-      requestLocation(); // Intenta geolocalización automáticamente
+      handleGeolocation();
+      cargarRestaurantesEnMapa();
     });
   </script>
-
-</section>
-
+</section><!-- /MAPA Section -->
 
 
 
 
-    <!-- Sección de Restaurantes -->
-<section id="restaurantes" class="restaurantes section">
-
-  <!-- Título de la Sección -->
-  <div class="container section-title" data-aos="fade-up">
+<!-- =========================================
+     SUBSECCIÓN: Restaurantes - Recomendación dinámica
+     ========================================= -->
+     <section id="restaurantes" class="restaurantes section">
+      <div class="container section-title position-relative" data-aos="fade-up">
+        <h2 class="mb-0">Nuestra Recomendación</h2>
     
-    <div><span>Nuestra Recomendacion</div>
-  </div>
-
-  <div class="container">
-    <div class="row justify-content-center" id="restaurante-container" data-aos="fade-up" data-aos-delay="100">
-      <!-- Contenido dinámico -->
-      <div class="col-lg-8">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h3 class="card-title">Cargando información...</h3>
-            <div class="spinner-border" role="status"></div>
-          </div>
+        <!-- Filtro a la derecha de la pantalla -->
+        <div style="position: absolute; top: 0; right: 0;">
+          <select id="filtro-proximidad" class="form-select" style="width: 220px;" onchange="ordenarRestaurantes()">
+            <option value="">Ordenar por...</option>
+            <option value="proximidad">Por proximidad</option>
+          </select>
         </div>
       </div>
-    </div>
-  </div>
-
-</section>
-
-<script>
-
-
-
-// Cargar y mostrar el primer restaurante
-async function cargarRestaurante() {
-  try {
-    const response = await fetch('RESTAURANTES_ASIA.json');
-    const data = await response.json();
-    const restaurante = data.restaurants[0];
+    </section>
     
-    const html = `
-      <div class="col-lg-10">
-        <div class="card mb-4 restaurant-card d-flex flex-row">
-          <div class="card-body flex-grow-1" style="margin-right: 50px;">
-            <h3 class="card-title">${restaurante.name}</h3>
-            <div class="restaurant-info">
-              <p class="mb-1">
-                <i class="bi bi-geo-alt"></i> 
-                ${restaurante.address.streetAddress}, 
-                ${restaurante.address.postalCode} 
-                ${restaurante.address.addressLocality}
-              </p>
-              <p class="mb-1">
-                <i class="bi bi-telephone"></i> 
-                <a href="tel:${restaurante.telephone}">${restaurante.telephone}</a>
-              </p>
-              <div class="d-flex gap-2 mt-3">
-                <a href="${restaurante.url}" target="_blank" class="btn btn-primary">
-                  Visitar Sitio Web
-                </a>
-                <a href="#testimonials" class="btn btn-outline-primary">
-                  Ver Reseñas
-                </a>
+      <div class="container">
+        <div class="row justify-content-center" id="restaurante-container" data-aos="fade-up" data-aos-delay="100">
+          <!-- Placeholder mientras carga -->
+          <div class="col-lg-8">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h3 class="card-title">Cargando información...</h3>
+                <div class="spinner-border" role="status"></div>
               </div>
             </div>
           </div>
-          <div class="image-container" style="flex-shrink: 0; width: 300px;">
-            <img src="assets/img/restaurantes/dragonSushi.png" 
-                 class="h-100 w-100 object-fit-cover"
-                 alt="${restaurante.name}">
-          </div>
         </div>
       </div>
-    `;
     
-    document.getElementById('restaurante-container').innerHTML = html;
+      <script>
+        let restaurantesOriginal = [];
+        let userCoords = null;
     
-  } catch (error) {
-    document.getElementById('restaurante-container').innerHTML = `
-      <div class="col-lg-8">
-        <div class="alert alert-danger">Error cargando el restaurante</div>
-      </div>
-    `;
-  }
-}
+        // Calcular distancia usando fórmula Haversine
+        function calcularDistancia(lat1, lon1, lat2, lon2) {
+          const R = 6371; // Radio de la Tierra en km
+          const dLat = (lat2 - lat1) * Math.PI / 180;
+          const dLon = (lon2 - lon1) * Math.PI / 180;
+          const a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * 
+            Math.cos(lat2 * Math.PI / 180) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+          return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        }
+    
+        async function ordenarRestaurantes() {
+          const filtro = document.getElementById('filtro-proximidad').value;
+          let restaurantesOrdenados = [...restaurantesOriginal];
+    
+          if (filtro === 'proximidad') {
+            try {
+              // Obtener ubicación del usuario
+              userCoords = JSON.parse(localStorage.getItem('userLocation')) || await obtenerUbicacion();
+              
+              // Calcular y ordenar por distancia
+              restaurantesOrdenados = restaurantesOrdenados
+                .filter(r => r.geo) // Filtrar restaurantes sin coordenadas
+                .map(r => ({
+                  ...r,
+                  distancia: calcularDistancia(
+                    userCoords[0], 
+                    userCoords[1],
+                    r.geo.latitude,
+                    r.geo.longitude
+                  )
+                }))
+                .sort((a, b) => a.distancia - b.distancia);
+            } catch (error) {
+              console.error('Error al obtener ubicación:', error);
+              alert('Debes activar la geolocalización para usar este filtro');
+              return;
+            }
+          }
+    
+          actualizarVista(restaurantesOrdenados);
+        }
+    
+        function obtenerUbicacion() {
+          return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(
+              position => {
+                const coords = [position.coords.latitude, position.coords.longitude];
+                localStorage.setItem('userLocation', JSON.stringify(coords));
+                resolve(coords);
+              },
+              error => reject(error)
+            );
+          });
+        }
+    
+        function actualizarVista(restaurantes) {
+          const cont = document.getElementById('restaurante-container');
+          cont.innerHTML = '';
+    
+          restaurantes.forEach(r => {
+            const imgName = r.name.replace(/\s+/g, '');
+            const col = document.createElement('div');
+            col.className = 'col-lg-10 mb-4';
+            
+            col.innerHTML = `
+              <div class="card restaurant-card d-flex flex-row">
+                <div class="card-body flex-grow-1" style="margin-right: 50px;">
+                  <h3 class="card-title">${r.name}</h3>
+                  
+                  ${r.distancia ? `<p class="text-secondary mb-2"><i class="bi bi-signpost-split"></i> ${r.distancia.toFixed(1)} km de tu ubicación</p>` : ''}
+                  
+                  <p class="mb-1">
+                    <i class="bi bi-geo-alt"></i>
+                    ${r.address.streetAddress}, ${r.address.postalCode} ${r.address.addressLocality}
+                  </p>
+                  
+                  ${r.telephone ? `
+                  <p class="mb-1">
+                    <i class="bi bi-telephone"></i>
+                    <a href="tel:${r.telephone}" class="text-decoration-none">${r.telephone}</a>
+                  </p>` : ''}
+    
+                  <div class="d-flex gap-2 mt-3">
+                    <a href="${r.url}" target="_blank" class="btn btn-primary">
+                      <i class="bi bi-globe"></i> Visitar Web
+                    </a>
+                    <a href="#testimonials" class="btn btn-outline-primary">
+                      <i class="bi bi-chat-text"></i> Ver Reseñas
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="image-container" style="flex-shrink: 0; width: 300px;">
+                  <img src="assets/img/restaurantes/${imgName}.png" 
+                       alt="${r.name}" 
+                       class="h-100 w-100 object-fit-cover rounded-end">
+                </div>
+              </div>`;
+            
+            cont.appendChild(col);
+          });
+        }
+    
+        async function cargarRestaurantes() {
+          try {
+            const resp = await fetch('RESTAURANTES_ASIA.json');
+            const data = await resp.json();
+            restaurantesOriginal = data.restaurants.filter(r => r.geo); // Filtrar solo con coordenadas
+            actualizarVista(restaurantesOriginal);
+          } catch (e) {
+            console.error('Error:', e);
+            document.getElementById('restaurante-container').innerHTML = `
+              <div class="col-lg-8">
+                <div class="alert alert-danger">Error cargando los restaurantes. Intenta recargar la página.</div>
+              </div>`;
+          }
+        }
+    
+        document.addEventListener('DOMContentLoaded', cargarRestaurantes);
+      </script>
+    </section>
+    
+    
+    
 
-// Cargar al iniciar
-document.addEventListener('DOMContentLoaded', cargarRestaurante);
-</script>
 
-
-
-   
-
-    <!-- Testimonials Section -->
+    <!-- =========================================
+         SUBSECCIÓN: Testimonials - Opiniones de clientes
+         ========================================= -->
     <section id="testimonials" class="testimonials section dark-background">
-
       <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              }
-            }
+            { "loop": true, "speed": 600, "autoplay": { "delay": 5000 }, "slidesPerView": "auto", "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true } }
           </script>
           <div class="swiper-wrapper">
-
+            <!-- Slide 1 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Saul Goodman</h3>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Sushi fresco y delicioso, con un ambiente acogedor. ¡Volveré sin duda!</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Sushi fresco y delicioso, con un ambiente acogedor. ¡Volveré sin duda!</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
+            <!-- Slide 2 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
-                
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Calidad excelente, pero las raciones algo pequeñas para el precio.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Calidad excelente, pero las raciones algo pequeñas para el precio.</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
+            <!-- Slide 3 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Sushi correcto, aunque he probado mejores en la isla.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Sushi correcto, aunque he probado mejores en la isla.</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
+            <!-- Slide 4 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>El personal fue súper amable y nos recomendaron platos espectaculares.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>El personal fue súper amable y nos recomendaron platos espectaculares.</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
+            <!-- Slide 5 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Gran variedad de sushi y un sake espectacular. Perfecto para una cena especial</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
+                <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <p><i class="bi bi-quote quote-icon-left"></i><span>Gran variedad de sushi y un sake espectacular. Perfecto para una cena especial</span><i class="bi bi-quote quote-icon-right"></i></p>
               </div>
-            </div><!-- End testimonial item -->
-
+            </div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
-
     </section><!-- /Testimonials Section -->
-
-    
 
   </main>
 
+  <!-- =========================================
+       SECCIÓN: FOOTER - Pie de página
+       ========================================= -->
   <footer id="footer" class="footer dark-background">
-
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">Delicious</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
@@ -517,6 +554,9 @@ document.addEventListener('DOMContentLoaded', cargarRestaurante);
   <!-- Preloader -->
   <div id="preloader"></div>
 
+  <!-- =========================================
+       SECCIÓN: Scripts - Vendor y Principal
+       ========================================= -->
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>

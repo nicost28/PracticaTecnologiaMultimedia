@@ -67,7 +67,7 @@
          ]
       },
       {
-         "name": "Koma Sushi & Asian Food",
+         "name": "KomaSushi",
          "url": "https://www.komasushi.es/",
          "telephone": "+34 674 252 353",
          "address": {
@@ -544,6 +544,11 @@
            "postalCode": "07011",
            "addressCountry": "ES"
          },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.5928,
+            "longitude": 2.6207
+         },
          "openingHoursSpecification": [
            {
              "@type": "OpeningHoursSpecification",
@@ -623,6 +628,11 @@
            "postalCode": "07157",
            "addressCountry": "ES"
          },
+         "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.5443, 
+            "longitude": 2.3882
+         },
          "openingHoursSpecification": [
            {
              "@type": "OpeningHoursSpecification",
@@ -657,7 +667,7 @@
        {
          "name": "Dawei",
          "url": "https://www.daweillucmajor.es/",
-         "telephone": null,
+         "telephone":"+34 971 66 40 90",
          "address": {
            "@type": "PostalAddress",
            "streetAddress": "Ronda de Migjorn, 72",
