@@ -404,7 +404,7 @@
         function actualizarVista(restaurantes) {
           const cont = document.getElementById('restaurante-container');
           cont.innerHTML = '';
-    
+
           restaurantes.forEach(r => {
             const imgName = r.name.replace(/\s+/g, '');
             const col = document.createElement('div');
@@ -427,12 +427,12 @@
                     <i class="bi bi-telephone"></i>
                     <a href="tel:${r.telephone}" class="text-decoration-none">${r.telephone}</a>
                   </p>` : ''}
-    
+
                   <div class="d-flex gap-2 mt-3">
                     <a href="${r.url}" target="_blank" class="btn btn-primary">
                       <i class="bi bi-globe"></i> Visitar Web
                     </a>
-                    <a href="#testimonials" class="btn btn-outline-primary">
+                    <a href="reviews.html?restaurantId=${r.id}" class="btn btn-outline-primary">
                       <i class="bi bi-chat-text"></i> Ver Reseñas
                     </a>
                   </div>
@@ -440,8 +440,8 @@
                 
                 <div class="image-container" style="flex-shrink: 0; width: 300px;">
                   <img src="assets/img/restaurantes/${imgName}.png" 
-                       alt="${r.name}" 
-                       class="h-100 w-100 object-fit-cover rounded-end">
+                      alt="${r.name}" 
+                      class="h-100 w-100 object-fit-cover rounded-end">
                 </div>
               </div>`;
             
@@ -451,18 +451,19 @@
     
         async function cargarRestaurantes() {
           try {
-            const resp = await fetch('RESTAURANTES_ASIA.json');
-            const data = await resp.json();
-            restaurantesOriginal = data.restaurants.filter(r => r.geo); // Filtrar solo con coordenadas
-            actualizarVista(restaurantesOriginal);
+              const resp = await fetch('RESTAURANTES_ASIA.json');
+              const data = await resp.json();
+              const restaurantes = data.restaurants.map((r, i) => ({ ...r, id: i + 1 })); // Asignar IDs
+              restaurantesOriginal = restaurantes.filter(r => r.geo); // Filtrar solo con coordenadas
+              actualizarVista(restaurantesOriginal);
           } catch (e) {
-            console.error('Error:', e);
-            document.getElementById('restaurante-container').innerHTML = `
-              <div class="col-lg-8">
-                <div class="alert alert-danger">Error cargando los restaurantes. Intenta recargar la página.</div>
-              </div>`;
+              console.error('Error:', e);
+              document.getElementById('restaurante-container').innerHTML = `
+                  <div class="col-lg-8">
+                      <div class="alert alert-danger">Error cargando los restaurantes. Intenta recargar la página.</div>
+                  </div>`;
           }
-        }
+      }
     
         document.addEventListener('DOMContentLoaded', cargarRestaurantes);
       </script>

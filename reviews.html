@@ -8,35 +8,63 @@
   <link href="https://unpkg.com/swiper@8/swiper-bundle.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    .dark-background { background: #333; color: #fff; }
-    .testimonial-img { border-radius: 50%; width: 80px; height: 80px; object-fit: cover; }
+    body { background-color: #ffffff; font-family: Arial, sans-serif; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+    .restaurant-card .image-container img { object-fit: cover; border-radius: 8px; }
     .stars i { color: #ffc107; }
-    #form-nueva-reseña input, #form-nueva-reseña select, #form-nueva-reseña textarea { width: 100%; max-width: 400px; }
+    #form-nueva-reseña select, #form-nueva-reseña textarea { width: 100%; max-width: 400px; margin-bottom: 10px; border: 1px solid #ff9800; border-radius: 5px; padding: 8px; }
+    #form-nueva-reseña select:focus, #form-nueva-reseña textarea:focus { outline: none; border-color: #ff5722; box-shadow: 0 0 5px rgba(255, 87, 34, 0.5); }
+    .btn-light { background-color: #ff9800; border: none; color: #fff; }
+    .btn-light:hover { background-color: #ff5722; }
+    h2, h3, h5 { color: #e65100; }
+    .testimonial-img {
+        width: 50px;   /* Ajusta al tamaño deseado */
+        height: 50px;  /* Ajusta al tamaño deseado */
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Estilos para el enlace de "Volver al Inicio" */
+    .volver-inicio {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f0f0f0;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .volver-inicio:hover {
+        background-color: #ddd;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <a href="index.html" class="volver-inicio">Volver al Inicio</a>
 
-  <!-- Listado de Restaurantes -->
-  <section id="restaurantes" class="p-4">
-    <div class="container">
-      <h2>Nuestros Restaurantes</h2>
-      <div id="lista-restaurantes" class="list-group mt-3"></div>
-    </div>
-  </section>
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <h2>Reseñas</h2>
+            </div>
+        </div>
 
-  <!-- Detalle y Botón Ver Reseñas -->
-  <section id="detalle" class="p-4 border-top">
-    <div class="container">
-      <div id="detalle-content">
-        <p class="text-muted">Selecciona un restaurante para ver detalles y reseñas.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Menú desplegable de Restaurantes -->
+    <section id="lista-restaurantes" class="mb-4">
+      <h3 class="mb-3">Selecciona un restaurante</h3>
+      <select id="restaurantes-select" class="form-select">
+        <option value="">-- Elige un restaurante --</option>
+      </select>
+    </section>
 
-  <!-- Sección de Reseñas -->
-  <section id="testimonials" class="testimonials section dark-background py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Reseñas de Usuarios</h2>
+    <!-- Contenedor del Restaurante Seleccionado -->
+    <section id="restaurante-container" class="mb-4">
+      <!-- Aquí se insertará la tarjeta del restaurante -->
+    </section>
+
+    <!-- Sección de Reseñas -->
+    <section id="testimonials" class="testimonials section mb-4">
+      <h3 class="text-center mb-3">Reseñas de Usuarios</h3>
       <div class="swiper init-swiper">
         <script type="application/json" class="swiper-config">
           { "loop": true, "speed": 600, "autoplay": { "delay": 5000 }, "slidesPerView": "auto", "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true } }
@@ -44,174 +72,152 @@
         <div class="swiper-wrapper"></div>
         <div class="swiper-pagination mt-3"></div>
       </div>
+    </section>
 
-      <!-- Formulario para nueva reseña -->
-      <div class="mt-4 text-center">
-        <h5 class="text-light">¿Quieres dejar tu opinión?</h5>
-        <form id="form-nueva-reseña" class="d-flex flex-column align-items-center gap-2">
-          <input type="text" id="nuevo-usuario" placeholder="Tu nombre" required>
-          <select id="nueva-valoracion" required>
-            <option value="">Puntuación...</option>
-            <option value="1">★☆☆☆☆</option>
-            <option value="2">★★☆☆☆</option>
-            <option value="3">★★★☆☆</option>
-            <option value="4">★★★★☆</option>
-            <option value="5">★★★★★</option>
-          </select>
-          <textarea id="nuevo-comentario" rows="2" placeholder="Tu comentario" required></textarea>
-          <button type="submit" class="btn btn-light">Enviar reseña</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- JSON de Restaurantes con Reseñas Base -->
-  <script type="application/json" id="restaurantes-data">
-  {
-    "restaurants": [
-      {
-        "id": 1,
-        "name": "Dragon Sushi",
-        "address": { "streetAddress": "C/ Falsa 123", "postalCode": "07001", "addressLocality": "Palma" },
-        "telephone": "+34123456789",
-        "url": "https://dragonsushi.example.com",
-        "image": "assets/img/restaurantes/dragonSushi.png",
-        "reviews": [
-          { "user": "Saul Goodman", "rating": 5, "comment": "Sushi fresco y delicioso, con un ambiente acogedor. ¡Volveré sin duda!", "avatar": "assets/img/testimonials/testimonials-1.jpg" },
-          { "user": "Sara Wilsson", "rating": 4, "comment": "Calidad excelente, pero las raciones algo pequeñas para el precio.", "avatar": "assets/img/testimonials/testimonials-2.jpg" }
-        ]
-      },
-      {
-        "id": 2,
-        "name": "Nobu Palma",
-        "address": { "streetAddress": "Av. del Mar 45", "postalCode": "07002", "addressLocality": "Palma" },
-        "telephone": "+34111222333",
-        "url": "https://nobupalma.example.com",
-        "image": "assets/img/restaurantes/nobu.png",
-        "reviews": [
-          { "user": "Jena Karlis", "rating": 3, "comment": "Buen sushi, aunque un poco caro.", "avatar": "assets/img/testimonials/testimonials-3.jpg" },
-          { "user": "Matt Brandon", "rating": 5, "comment": "El personal fue súper amable y nos recomendaron platos espectaculares.", "avatar": "assets/img/testimonials/testimonials-4.jpg" }
-        ]
-      }
-    ]
-  }
-  </script>
+    <!-- Formulario para nueva reseña -->
+    <section class="text-center">
+      <h5 class="mb-3">¿Quieres dejar tu opinión?</h5>
+      <form id="form-nueva-reseña" class="d-flex flex-column align-items-center gap-2">
+        <select id="nueva-valoracion" required>
+          <option value="">Puntuación...</option>
+          <option value="1">★☆☆☆☆</option>
+          <option value="2">★★☆☆☆</option>
+          <option value="3">★★★☆☆</option>
+          <option value="4">★★★★☆</option>
+          <option value="5">★★★★★</option>
+        </select>
+        <textarea id="nuevo-comentario" rows="2" placeholder="Tu comentario" required></textarea>
+        <button type="submit" class="btn btn-light">Enviar reseña</button>
+      </form>
+    </section>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script>
-    const data = JSON.parse(document.getElementById('restaurantes-data').textContent);
-    const lista = document.getElementById('lista-restaurantes');
-    const detalle = document.getElementById('detalle-content');
-    let currentRestaurantId = null;
-
-    data.restaurants.forEach(r => {
-      const btn = document.createElement('button');
-      btn.className = 'list-group-item list-group-item-action';
-      btn.textContent = r.name;
-      btn.onclick = () => mostrarDetalle(r);
-      lista.appendChild(btn);
+    let currentUserId = null;
+    document.addEventListener('DOMContentLoaded', () => {
+        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+        currentUserId = currentUser ? currentUser.id : null;
     });
 
-    function mostrarDetalle(r) {
-      currentRestaurantId = r.id;
-      detalle.innerHTML = `
-        <div class="row">
-          <div class="col-md-8">
-            <h3>${r.name}</h3>
-            <p><i class="bi bi-geo-alt"></i> ${r.address.streetAddress}, ${r.address.postalCode} ${r.address.addressLocality}</p>
-            <p><i class="bi bi-telephone"></i> <a href="tel:${r.telephone}" class="text-white">${r.telephone}</a></p>
-            <a href="${r.url}" target="_blank" class="btn btn-light mb-2">Visitar Sitio Web</a>
-            <br>
-            <button class="btn btn-outline-light" onclick='mostrarResenas(${r.id})'>Ver Reseñas</button>
-          </div>
-          <div class="col-md-4 text-center">
-            <img src="${r.image}" alt="${r.name}" class="img-fluid rounded" />
-          </div>
-        </div>
-      `;
+    async function cargarRestaurantes() {
+      try {
+        const response = await fetch('RESTAURANTES_ASIA.json');
+        const data = await response.json();
+        restaurantsData = data.restaurants.map((r, i) => ({ ...r, id: i + 1 }));
+        llenarSelect();
+        procesarRestaurante();
+      } catch (error) {
+        console.error('Error al cargar restaurantes:', error);
+      }
     }
 
-    async function mostrarResenas(id) {
-      const restaurant = data.restaurants.find(r => r.id === id);
-      const swiperWrapper = document.querySelector('#testimonials .swiper-wrapper');
-      swiperWrapper.innerHTML = '';
-
-      // Obtener reseñas de servidor
-      const resp = await fetch('reviews.json');
-      const allReviews = await resp.json();
-      const extras = allReviews.reviews.filter(rv => rv.restaurantId === id);
-      const todas = [...restaurant.reviews, ...extras];
-
-      todas.forEach(review => {
-        const stars = '<i class="bi bi-star-fill"></i>'.repeat(review.rating);
-        const empty = '<i class="bi bi-star"></i>'.repeat(5 - review.rating);
-        swiperWrapper.insertAdjacentHTML('beforeend', `
-          <div class="swiper-slide text-center p-4">
-            <img src="${review.avatar}" class="testimonial-img mb-3" alt="${review.user}">
-            <h5 class="text-white">${review.user}</h5>
-            <div class="stars mb-2 text-warning">${stars}${empty}</div>
-            <p class="text-light fst-italic">“${review.comment}”</p>
-          </div>
-        `);
+    function llenarSelect() {
+      const select = document.getElementById('restaurantes-select');
+      restaurantsData.forEach(r => {
+        const opt = document.createElement('option');
+        opt.value = r.id;
+        opt.textContent = r.name;
+        select.appendChild(opt);
       });
-
-      document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth' });
-      if(window.mySwiper) window.mySwiper.destroy(true, true);
-      window.mySwiper = new Swiper('.init-swiper', JSON.parse(document.querySelector('.swiper-config').textContent));
+      select.addEventListener('change', () => {
+        const id = +select.value;
+        window.location.search = id ? `?restaurantId=${id}` : '';
+      });
     }
+
+    function procesarRestaurante() {
+      const params = new URLSearchParams(window.location.search);
+      const id = +params.get('restaurantId');
+      if (id) {
+        const restaurant = restaurantsData.find(r => r.id === id);
+        if (restaurant) {
+          cargarRestaurante(restaurant);
+          mostrarResenas(id);
+          document.getElementById('restaurantes-select').value = id;
+        }
+      }
+    }
+
+    function cargarRestaurante(restaurant) {
+      const html = `
+        <div class="row"><div class="col-lg-10">
+          <div class="card mb-4 restaurant-card d-flex flex-row">
+            <div class="card-body flex-grow-1 me-4">
+              <h3 class="card-title">${restaurant.name}</h3>
+              <div class="restaurant-info">
+                <p class="mb-1"><i class="bi bi-geo-alt"></i>
+                  ${restaurant.address.streetAddress},
+                  ${restaurant.address.postalCode} ${restaurant.address.addressLocality}
+                </p>
+                <p class="mb-1"><i class="bi bi-telephone"></i>
+                  <a href="tel:${restaurant.telephone}">${restaurant.telephone}</a>
+                </p>
+                <div class="d-flex gap-2 mt-3">
+                  <a href="${restaurant.url}" target="_blank" class="btn btn-primary">Visitar Sitio Web</a>
+                  <a href="#testimonials" class="btn btn-outline-primary">Ver Reseñas</a>
+                </div>
+              </div>
+            </div>
+            <div class="image-container" style="flex-shrink:0; width:300px;">
+              <img src="assets/img/restaurantes/${restaurant.name.replace(/\s+/g, '')}.png"
+                  class="h-100 w-100 object-fit-cover rounded-end" alt="${restaurant.name}">
+            </div>
+          </div>
+        </div></div>
+      `;
+      document.getElementById('restaurante-container').innerHTML = html;
+    }
+
+    async function mostrarResenas(restaurantId) {
+    try {
+        const response = await fetch(`get_reviews.php?restaurantId=${restaurantId}`); // URL modificada
+        const data = await response.json();
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+        swiperWrapper.innerHTML = '';
+        swiperWrapper.innerHTML = ''; // Limpiar el contenido anterior
+
+        data.forEach(r => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide card p-3';
+            slide.innerHTML = `
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <img src="${r.avatar || 'assets/img/testimonials/default-avatar.jpg'}" class="testimonial-img">
+                <div>
+                  <h6>${r.username || `Usuario ${r.userId}`}</h6>
+                  <div class="stars">${'★'.repeat(r.rating) + '☆'.repeat(5 - r.rating)}</div>
+                </div>
+              </div>
+              <p>${r.comment}</p>
+            `;
+            swiperWrapper.appendChild(slide);
+        });
+        new Swiper('.init-swiper', JSON.parse(document.querySelector('.swiper-config').textContent));
+
+    } catch (error) {
+        console.error('Error al cargar reseñas:', error);
+    }
+}
 
     document.getElementById('form-nueva-reseña').addEventListener('submit', async e => {
       e.preventDefault();
+      const restaurantId = +new URLSearchParams(window.location.search).get('restaurantId');
       const nueva = {
-        restaurantId: currentRestaurantId,
-        userId: document.getElementById('nuevo-usuario').value,
-        user: document.getElementById('nuevo-usuario').value,
+        restaurantId,
+        userId: currentUserId,
         rating: +document.getElementById('nueva-valoracion').value,
         comment: document.getElementById('nuevo-comentario').value,
         avatar: 'assets/img/testimonials/default-avatar.jpg'
       };
-      await fetch('addReview.php', {
-        method: 'POST',
-        headers: {'Content-Type':'application/json'},
-        body: JSON.stringify(nueva)
+      await fetch('add_reviews.php', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(nueva)
       });
       e.target.reset();
-      mostrarResenas(currentRestaurantId);
+      mostrarResenas(restaurantId);
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      window.mySwiper = new Swiper('.init-swiper', JSON.parse(document.querySelector('.swiper-config').textContent));
-    });
+    document.addEventListener('DOMContentLoaded', cargarRestaurantes);
   </script>
-
 </body>
 </html>
-
-<?php
-// addReview.php
-header('Content-Type: application/json');
-$file = 'reviews.json';
-// Inicializa si no existe
-if (!file_exists($file)) {
-  file_put_contents($file, json_encode(['reviews'=>[]], JSON_PRETTY_PRINT));
-}
-
-data = json_decode(file_get_contents($file), true);
-// Obtener body JSON
-$input = json_decode(file_get_contents('php://input'), true);
-
-// Añadir nueva reseña
-$data['reviews'][] = [
-  'restaurantId' => $input['restaurantId'],
-  'userId'       => $input['userId'],
-  'user'         => $input['user'],
-  'rating'       => $input['rating'],
-  'comment'      => $input['comment'],
-  'avatar'       => $input['avatar'],
-  'timestamp'    => date('c')
-];
-// Guardar
-file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT));
-echo json_encode(['success'=>true]);
-?>

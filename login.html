@@ -28,31 +28,37 @@
         <!-- Script de Login -->
         <script>
             document.querySelector('.login-form').addEventListener('submit', function (e) {
-                e.preventDefault();
+            e.preventDefault();
 
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-                fetch('login.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password }),
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        if (data.message) {
-                            alert(data.message);
-                            sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-                            window.location.href = 'index.html';
-                        } else if (data.error) {
-                            alert(data.error);
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error en el login:', error);
-                        alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo.');
-                    });
+            fetch('login.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password }),
+            })
+            .then((response) => {
+                // Primero verificamos si la respuesta es exitosa
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then((data) => {
+                if (data.message) {
+                    alert(data.message);
+                    sessionStorage.setItem('currentUser', JSON.stringify(data.user));
+                    window.location.href = 'index.html';
+                } else if (data.error) {
+                    alert(data.error);
+                }
+            })
+            .catch((error) => {
+                console.error('Error en el login:', error);
+                alert('Ocurrió un error al iniciar sesión. Inténtalo de nuevo.');
             });
+        });
         </script>
 </body>
 </html>

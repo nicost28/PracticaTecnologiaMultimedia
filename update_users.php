@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         file_put_contents($file, json_encode($users, JSON_PRETTY_PRINT));
 
         http_response_code(201);
-        echo json_encode(["message" => "Usuario registrado correctamente."]);
+        echo json_encode(["message" => "Usuario registrado correctamente.", "userId" => $user['id']]);
     } else {
         http_response_code(400);
         echo json_encode(["error" => "Faltan datos."]);

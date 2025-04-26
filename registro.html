@@ -81,14 +81,25 @@
                 };
         
                 fetch('update_users.php', {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(userData)
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la respuesta del servidor');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     if (data.message) {
                         alert(data.message);
+                        // Guardar información del usuario, incluyendo el ID
+                        sessionStorage.setItem('currentUser', JSON.stringify({
+                            id: data.userId, // Asumiendo que el ID se devuelve como userId
+                            username: username,
+                            avatar: reader.result || null
+                        }));
                         window.location.href = "login.html";
                     } else if (data.error) {
                         alert(data.error);
