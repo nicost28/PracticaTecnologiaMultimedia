@@ -1,8 +1,9 @@
 {
    "@context": "https://schema.org",
-   "@type": "Restaurant",
-   "restaurants": [
+   "@type": "ItemList",
+   "itemListElement": [
       {
+         "@type": "Restaurant",
          "name": "Dragon Sushi",
          "url": "https://www.dragonsushi.online",
          "telephone": "+34 871 77 03 95",
@@ -20,6 +21,7 @@
          }
       },
       {
+         "@type": "Restaurant",
          "name": "Made in China",
          "url": "https://www.restaurantemadeinchina.com",
          "telephone": "+34 971 40 34 34",
@@ -67,6 +69,7 @@
          ]
       },
       {
+         "@type": "Restaurant",
          "name": "KomaSushi",
          "url": "https://www.komasushi.es/",
          "telephone": "+34 674 252 353",
@@ -98,6 +101,7 @@
          ]
       },
       {
+         "@type": "Restaurant",
          "name": "Mango Thai",
          "url": "https://www.mangothai.es/",
          "telephone": "+34 971 545 752",
@@ -130,61 +134,62 @@
          ]
       },
       {
+         "@type": "Restaurant",
          "name": "Sibuya Urban Sushi Bar",
          "url": "https://sibuyaurbansushibar.com/restaurante-japones-mallorca/",
          "telephone": "+34 871 62 09 20",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "CC Mallorca Fashion Outlet A Palma-Inca. Salida 8",
-           "addressLocality": "Palma de Mallorca",
-           "postalCode": "07141",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "CC Mallorca Fashion Outlet A Palma-Inca. Salida 8",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07141",
+            "addressCountry": "ES"
          },
          "geo": {
-           "@type": "GeoCoordinates",
-           "latitude": 39.6338,
-           "longitude": 2.7317
+            "@type": "GeoCoordinates",
+            "latitude": 39.6338,
+            "longitude": 2.7317
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "opens": "13:00",
-             "closes": "16:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Wednesday",
-               "Thursday",
-               "Sunday"
-             ],
-             "opens": "19:00",
-             "closes": "23:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Friday",
-               "Saturday"
-             ],
-             "opens": "19:00",
-             "closes": "23:30"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "13:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Sunday"
+               ],
+               "opens": "19:00",
+               "closes": "23:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "19:00",
+               "closes": "23:30"
+            }
          ]
-       },
-
-       {
+      },
+      {
+         "@type": "Restaurant",
          "name": "Harajuku Gastro Sushi",
          "url": "https://harajukupalma.com/",
          "telephone": "+34 871 270 056",
@@ -236,8 +241,8 @@
             }
          ]
       },
-
       {
+         "@type": "Restaurant",
          "name": "UDON Fan",
          "url": "https://www.udon.com/restaurante/udon-fan",
          "telephone": "+34 871 03 16 85",
@@ -285,8 +290,8 @@
             }
          ]
       },
-
       {
+         "@type": "Restaurant",
          "name": "Ramen Otaku",
          "url": "https://www.ramenotaku.com.es/",
          "telephone": "+34 871 02 25 18",
@@ -305,20 +310,34 @@
          "openingHoursSpecification": [
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
                "opens": "13:00",
                "closes": "16:00"
             },
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
                "opens": "19:30",
                "closes": "23:00"
             }
          ]
       },
-
       {
+         "@type": "Restaurant",
          "name": "Kasui Restaurante",
          "url": "https://kasuirestaurante.com/",
          "telephone": "+34 971 677 780",
@@ -337,73 +356,85 @@
          "openingHoursSpecification": [
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
                "opens": "13:00",
                "closes": "16:00"
             },
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+               "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
                "opens": "19:00",
                "closes": "23:00"
             }
          ]
       },
-
       {
+         "@type": "Restaurant",
          "name": "Restaurante Chino Wawa",
          "url": "https://www.tripadvisor.es/Restaurant_Review-g187463-d1001277-Reviews-Restaurante_chino_Wawa-Palma_de_Mallorca_Majorca_Balearic_Islands.html",
          "telephone": "+34 971 75 80 78",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "Avenida Tomas de Villanueva Cortes 6",
-           "addressLocality": "Palma de Mallorca",
-           "postalCode": "07004",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "Avenida Tomas de Villanueva Cortes 6",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07004",
+            "addressCountry": "ES"
          },
          "geo": {
-           "@type": "GeoCoordinates",
-           "latitude": 39.5889882512111,
-           "longitude": 2.663779205555114
+            "@type": "GeoCoordinates",
+            "latitude": 39.5889882512111,
+            "longitude": 2.663779205555114
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "opens": "12:00",
-             "closes": "16:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Thursday"
-             ],
-             "opens": "19:00",
-             "closes": "23:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "opens": "19:30",
-             "closes": "23:30"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "12:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Thursday"
+               ],
+               "opens": "19:00",
+               "closes": "23:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "19:30",
+               "closes": "23:30"
+            }
          ]
-       },
-
-       {
+      },
+      {
+         "@type": "Restaurant",
          "name": "Sushi Ninja Inca",
          "url": "https://www.just-eat.es/restaurants-sushi-ninja-inca-inca/menu",
          "telephone": "+34 971 667 595",
@@ -422,84 +453,96 @@
          "openingHoursSpecification": [
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "13:00",
                "closes": "16:00"
             },
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "20:00",
                "closes": "00:00"
             }
          ]
       },
-
-
       {
+         "@type": "Restaurant",
          "name": "Hatsukokoro",
          "url": "https://www.just-eat.es/ca/restaurants-hatsukokoro-palma/menu",
          "telephone": "871 61 12 67",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": " C/ de l'Arxiduc Lluís Salvador, 3bajo",
-           "addressLocality": "Palma de Mallorca",
-           "postalCode": "07004",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "C/ de l'Arxiduc Lluís Salvador, 3bajo",
+            "addressLocality": "Palma de Mallorca",
+            "postalCode": "07004",
+            "addressCountry": "ES"
          },
          "geo": {
-           "@type": "GeoCoordinates",
-           "latitude": 39.5777,
-           "longitude": 2.6528
+            "@type": "GeoCoordinates",
+            "latitude": 39.5777,
+            "longitude": 2.6528
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Wednesday",
-               "Thursday"
-             ],
-             "opens": "13:00",
-             "closes": "16:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "opens": "13:00",
-             "closes": "16:30"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Tuesday",
-               "Wednesday",
-               "Thursday",
-               "Sunday"
-             ],
-             "opens": "19:30",
-             "closes": "23:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Friday",
-               "Saturday"
-             ],
-             "opens": "19:30",
-             "closes": "00:00"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday"
+               ],
+               "opens": "13:00",
+               "closes": "16:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "13:00",
+               "closes": "16:30"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Sunday"
+               ],
+               "opens": "19:30",
+               "closes": "23:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "19:30",
+               "closes": "00:00"
+            }
          ]
-       },
-
-
-       {
+      },
+      {
+         "@type": "Restaurant",
          "name": "La India",
          "url": "https://www.tripadvisor.es/Restaurant_Review-g580304-d2233694-Reviews-La_India-Manacor_Majorca_Balearic_Islands.html",
          "telephone": "+34 971 844 365",
@@ -518,31 +561,45 @@
          "openingHoursSpecification": [
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "12:00",
                "closes": "16:00"
             },
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "19:00",
                "closes": "00:00"
             }
          ]
       },
-
-
-
       {
+         "@type": "Restaurant",
          "name": "Kho Thai",
          "url": "https://www.tripadvisor.es/Restaurant_Review-g187463-d12403112-Reviews-Kho_Thai-Palma_de_Mallorca_Majorca_Balearic_Islands.html",
          "telephone": "+34 602 42 06 16",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "Cami de la Vileta, 123",
-           "addressLocality": "Sa Vileta-Son Rapinya",
-           "postalCode": "07011",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "Cami de la Vileta, 123",
+            "addressLocality": "Sa Vileta-Son Rapinya",
+            "postalCode": "07011",
+            "addressCountry": "ES"
          },
          "geo": {
             "@type": "GeoCoordinates",
@@ -550,41 +607,41 @@
             "longitude": 2.6207
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday"
-             ],
-             "opens": "13:00",
-             "closes": "15:30"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday"
-             ],
-             "opens": "19:30",
-             "closes": "23:00"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Tuesday"
-             ],
-             "opens": "19:30",
-             "closes": "23:00"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
+               "opens": "13:00",
+               "closes": "15:30"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+               ],
+               "opens": "19:30",
+               "closes": "23:00"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Tuesday"
+               ],
+               "opens": "19:30",
+               "closes": "23:00"
+            }
          ]
-       },
-
-       {
+      },
+      {
+         "@type": "Restaurant",
          "name": "Restaurante Perla Brillante",
          "url": "https://glovoapp.com/es/ca/manacor/restaurante-perla-brillante-manacor/",
          "telephone": "+34 971 843 403",
@@ -603,117 +660,125 @@
          "openingHoursSpecification": [
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "12:00",
                "closes": "16:00"
             },
             {
                "@type": "OpeningHoursSpecification",
-               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+               "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+               ],
                "opens": "19:30",
                "closes": "23:00"
             }
          ]
       },
-
-
       {
+         "@type": "Restaurant",
          "name": "May Sun",
          "url": "https://visit-andratx.com/ca/restaurante-may-sun/",
          "telephone": "+34 971 67 40 83",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "Av. Mateo Bosch, 25",
-           "addressLocality": "Port d'Andratx",
-           "postalCode": "07157",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Mateo Bosch, 25",
+            "addressLocality": "Port d'Andratx",
+            "postalCode": "07157",
+            "addressCountry": "ES"
          },
          "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 39.5443, 
+            "latitude": 39.5443,
             "longitude": 2.3882
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday",
-               "Tuesday"
-             ],
-             "opens": "12:00",
-             "closes": "16:30"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Monday",
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday",
-               "Tuesday"
-             ],
-             "opens": "18:00",
-             "closes": "00:00"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "Tuesday"
+               ],
+               "opens": "12:00",
+               "closes": "16:30"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Monday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "Tuesday"
+               ],
+               "opens": "18:00",
+               "closes": "00:00"
+            }
          ]
-       },
-
-       {
+      },
+      {
+         "@type": "Restaurant",
          "name": "Dawei",
          "url": "https://www.daweillucmajor.es/",
-         "telephone":"+34 971 66 40 90",
+         "telephone": "+34 971 66 40 90",
          "address": {
-           "@type": "PostalAddress",
-           "streetAddress": "Ronda de Migjorn, 72",
-           "addressLocality": "Llucmajor",
-           "postalCode": "07620",
-           "addressCountry": "ES"
+            "@type": "PostalAddress",
+            "streetAddress": "Ronda de Migjorn, 72",
+            "addressLocality": "Llucmajor",
+            "postalCode": "07620",
+            "addressCountry": "ES"
          },
          "geo": {
-           "@type": "GeoCoordinates",
-           "latitude": 39.48818,
-           "longitude": 2.88448
+            "@type": "GeoCoordinates",
+            "latitude": 39.48818,
+            "longitude": 2.88448
          },
          "openingHoursSpecification": [
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday",
-               "Tuesday"
-             ],
-             "opens": "12:00",
-             "closes": "16:30"
-           },
-           {
-             "@type": "OpeningHoursSpecification",
-             "dayOfWeek": [
-               "Wednesday",
-               "Thursday",
-               "Friday",
-               "Saturday",
-               "Sunday",
-               "Tuesday"
-             ],
-             "opens": "19:00",
-             "closes": "23:30"
-           }
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "Tuesday"
+               ],
+               "opens": "12:00",
+               "closes": "16:30"
+            },
+            {
+               "@type": "OpeningHoursSpecification",
+               "dayOfWeek": [
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "Tuesday"
+               ],
+               "opens": "19:00",
+               "closes": "23:30"
+            }
          ]
-       }
-
-      ]
-   }
-
-   
-   
-   
-
+      }
+   ]
+}
