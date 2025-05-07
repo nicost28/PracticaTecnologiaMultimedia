@@ -12,42 +12,77 @@
     .container { max-width: 800px; margin: 0 auto; padding: 20px; }
     .restaurant-card .image-container img { object-fit: cover; border-radius: 8px; }
     .stars i { color: #ffc107; }
-    #form-nueva-reseña select, #form-nueva-reseña textarea { width: 100%; max-width: 400px; margin-bottom: 10px; border: 1px solid #ff9800; border-radius: 5px; padding: 8px; }
-    #form-nueva-reseña select:focus, #form-nueva-reseña textarea:focus { outline: none; border-color: #ff5722; box-shadow: 0 0 5px rgba(255, 87, 34, 0.5); }
-    .btn-light { background-color: #ff9800; border: none; color: #fff; }
-    .btn-light:hover { background-color: #ff5722; }
+    #form-nueva-reseña select,
+    #form-nueva-reseña textarea {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 10px;
+      border: 1px solid #ff9800;
+      border-radius: 5px;
+      padding: 8px;
+    }
+    #form-nueva-reseña select:focus,
+    #form-nueva-reseña textarea:focus {
+      outline: none;
+      border-color: #ff5722;
+      box-shadow: 0 0 5px rgba(255, 87, 34, 0.5);
+    }
     h2, h3, h5 { color: #e65100; }
     .testimonial-img {
-        width: 50px;   /* Ajusta al tamaño deseado */
-        height: 50px;  /* Ajusta al tamaño deseado */
-        border-radius: 50%;
-        object-fit: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
     }
-    
-    /* Estilos para el enlace de "Volver al Inicio" */
+
+    .btn-enviar-reseña {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #ff9800;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-enviar-reseña:hover {
+      background-color: #e65100;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* Botón Volver (rojo) */
     .volver-inicio {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #f0f0f0;
-        color: #333;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-bottom: 20px;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #dc3545;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      border: none;
+      cursor: pointer;
     }
     .volver-inicio:hover {
-        background-color: #ddd;
+      background-color: #c82333;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="volver-inicio">Volver al Inicio</a>
-
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h2>Reseñas</h2>
-            </div>
-        </div>
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2>Reseñas</h2>
+      </div>
+    </div>
 
     <!-- Menú desplegable de Restaurantes -->
     <section id="lista-restaurantes" class="mb-4">
@@ -87,7 +122,12 @@
           <option value="5">★★★★★</option>
         </select>
         <textarea id="nuevo-comentario" rows="2" placeholder="Tu comentario" required></textarea>
-        <button type="submit" class="btn btn-light">Enviar reseña</button>
+
+        <!-- Botones alineados centrados -->
+        <div class="d-flex justify-content-center gap-3 mt-2 flex-wrap">
+          <button type="submit" class="btn-enviar-reseña">Enviar reseña</button>
+          <a href="index.html" class="volver-inicio">Volver al Inicio</a>
+        </div>
       </form>
     </section>
   </div>
@@ -97,8 +137,8 @@
   <script>
     let currentUserId = null;
     document.addEventListener('DOMContentLoaded', () => {
-        const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
-        currentUserId = currentUser ? currentUser.id : null;
+      const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+      currentUserId = currentUser ? currentUser.id : null;
     });
 
     async function cargarRestaurantes() {
@@ -162,7 +202,8 @@
             </div>
             <div class="image-container" style="flex-shrink:0; width:300px;">
               <img src="assets/img/restaurantes/${restaurant.name.replace(/\s+/g, '')}.png"
-                  class="h-100 w-100 object-fit-cover rounded-end" alt="${restaurant.name}">
+                   class="h-100 w-100 object-fit-cover rounded-end"
+                   alt="${restaurant.name}">
             </div>
           </div>
         </div></div>
@@ -171,34 +212,31 @@
     }
 
     async function mostrarResenas(restaurantId) {
-    try {
-        const response = await fetch(`get_reviews.php?restaurantId=${restaurantId}`); // URL modificada
+      try {
+        const response = await fetch(`get_reviews.php?restaurantId=${restaurantId}`);
         const data = await response.json();
         const swiperWrapper = document.querySelector('.swiper-wrapper');
         swiperWrapper.innerHTML = '';
-        swiperWrapper.innerHTML = ''; // Limpiar el contenido anterior
-
         data.forEach(r => {
-            const slide = document.createElement('div');
-            slide.className = 'swiper-slide card p-3';
-            slide.innerHTML = `
-              <div class="d-flex align-items-center gap-3 mb-2">
-                <img src="${r.avatar || 'assets/img/testimonials/default-avatar.jpg'}" class="testimonial-img">
-                <div>
-                  <h6>${r.username || `Usuario ${r.userId}`}</h6>
-                  <div class="stars">${'★'.repeat(r.rating) + '☆'.repeat(5 - r.rating)}</div>
-                </div>
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide card p-3';
+          slide.innerHTML = `
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <img src="${r.avatar || 'assets/img/testimonials/default-avatar.jpg'}" class="testimonial-img">
+              <div>
+                <h6>${r.username || `Usuario ${r.userId}`}</h6>
+                <div class="stars">${'★'.repeat(r.rating) + '☆'.repeat(5 - r.rating)}</div>
               </div>
-              <p>${r.comment}</p>
-            `;
-            swiperWrapper.appendChild(slide);
+            </div>
+            <p>${r.comment}</p>
+          `;
+          swiperWrapper.appendChild(slide);
         });
         new Swiper('.init-swiper', JSON.parse(document.querySelector('.swiper-config').textContent));
-
-    } catch (error) {
+      } catch (error) {
         console.error('Error al cargar reseñas:', error);
+      }
     }
-}
 
     document.getElementById('form-nueva-reseña').addEventListener('submit', async e => {
       e.preventDefault();
@@ -211,7 +249,9 @@
         avatar: 'assets/img/testimonials/default-avatar.jpg'
       };
       await fetch('add_reviews.php', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(nueva)
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(nueva)
       });
       e.target.reset();
       mostrarResenas(restaurantId);
