@@ -145,7 +145,7 @@
       try {
         const response = await fetch('RESTAURANTES_ASIA.json');
         const data = await response.json();
-        restaurantsData = data.restaurants.map((r, i) => ({ ...r, id: i + 1 }));
+        restaurantsData = data.itemListElement.map((r, i) => ({ ...r, id: i + 1 }));
         llenarSelect();
         procesarRestaurante();
       } catch (error) {
