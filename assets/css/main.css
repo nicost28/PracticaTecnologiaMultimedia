@@ -1685,31 +1685,51 @@ h2 {
 --------------------------------------------------------------*/
 
 
-/* Estilos específicos para la tarjeta de restaurante */
+/* Modifica estos estilos en tu main.css */
 .restaurant-card {
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  display: flex; /* Mantener flex para la disposición */
+  height: 250px; /* Altura fija para todas las tarjetas */
+}
+
+.restaurant-card .image-container {
+  width: 300px; /* Ancho fijo para el contenedor de imagen */
+  min-width: 300px; /* Evita que se reduzca */
+  height: 100%; /* Ocupa toda la altura de la tarjeta */
+  overflow: hidden;
+}
+
+.restaurant-card .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Estilo especial para imágenes con proporción 448x201 (2.23:1) */
+.restaurant-card .image-container img[src*="asiatico-carrusel1.jpg"],
+.restaurant-card .image-container img[src*="hero-carousel-1.jpg"] {
+  object-fit: contain;
+  object-position: center;
+  background-color: #f8f9fa; /* Fondo neutral para espacios vacíos */
 }
 
 .restaurant-card:hover {
   transform: translateY(-5px);
 }
 
-/* Estilos específicos para la imagen del restaurante */
-.restaurant-card .restaurant-image {
-  width: 100px; /* Ajusta el ancho deseado */
-  height: auto; /* Mantiene la proporción de la imagen */
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-
-/* Versión móvil - Ajustar el tamaño de la imagen */
+/* Versión móvil */
 @media (max-width: 768px) {
-  .restaurant-card .restaurant-image {
-    width: 100%; /* La imagen ocupará el ancho completo del contenedor */
+  .restaurant-card {
+    flex-direction: column;
     height: auto;
   }
+  
+  .restaurant-card .image-container {
+    width: 100%;
+    height: 200px; /* Altura fija en móvil */
+  }
 }
-
-
