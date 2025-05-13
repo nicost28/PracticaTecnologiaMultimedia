@@ -307,7 +307,9 @@ h6 {
 #mi_mapa {
   width: 95%;
   height: 75vh; /* Reducimos un poco la altura */
-  margin: 100px auto 40px;
+  margin: 180px auto 40px;
+  z-index: 0;
+  position: relative;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   border: 2px solid #fff;
@@ -838,7 +840,7 @@ h2 {
   top: 59%; /* Posición más baja */
   left: 50%;
   transform: translate(-50%, -40%); /* Ajuste vertical */
-  z-index: 2; /* Z-index menor que el título */
+  z-index: 1; /* Z-index menor que el título */
   width: 50vw;
   height: 50vh;
   max-width: 800px;
@@ -874,7 +876,7 @@ h2 {
 
 .hero .carousel {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
