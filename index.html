@@ -108,7 +108,7 @@
     <section id="why-us" class="why-us section">
       <div class="container section-title" data-aos="fade-up" style="position: relative;">
         <h2 style="margin-bottom: 40px;">
-          <span class="palabra-izq">Mapa de Restaurantes</span>
+          <span class="palabra-izq">Mapa de RRRRRRestaurantes</span>
         </h2>
         <button id="filtro-michelin" class="btn btn-sm btn-outline-danger" style="position: absolute; top: 0; right: 0;"
           onclick="cambiarTipoRestaurantes()">
@@ -267,6 +267,8 @@
 </section>
 
 
+
+
 <!-- =========================================
      SUBSECCIÓN: Restaurantes - Recomendación dinámica
 ========================================= -->
@@ -307,17 +309,15 @@
 
     function estaAbiertoAhora(specs) {
       if (!Array.isArray(specs) || specs.length === 0) return null;
-      const now = new Date();
       const dias = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-      const hoy = dias[now.getDay()];
-      const minAhora = now.getHours() * 60 + now.getMinutes();
+      const hoy = dias[new Date().getDay()];
+      const ahora = new Date();
+      const minAhora = ahora.getHours() * 60 + ahora.getMinutes();
       for (const s of specs) {
         if (s.dayOfWeek.includes(hoy)) {
           const openMin = horaEnMinutos(s.opens);
           const closeMin = horaEnMinutos(s.closes);
-          if (minAhora >= openMin && minAhora <= closeMin) {
-            return true;
-          }
+          if (minAhora >= openMin && minAhora <= closeMin) return true;
         }
       }
       return false;
@@ -326,9 +326,7 @@
     function calcularDistancia(lat1, lon1, lat2, lon2) {
       const R = 6371, rad = d => d * Math.PI/180;
       const dLat = rad(lat2 - lat1), dLon = rad(lon2 - lon1);
-      const a = Math.sin(dLat/2)**2 +
-                Math.cos(rad(lat1))*Math.cos(rad(lat2))*
-                Math.sin(dLon/2)**2;
+      const a = Math.sin(dLat/2)**2 + Math.cos(rad(lat1))*Math.cos(rad(lat2))*Math.sin(dLon/2)**2;
       return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     }
 
@@ -339,175 +337,121 @@
             const c = [pos.coords.latitude, pos.coords.longitude];
             localStorage.setItem('userLocation', JSON.stringify(c));
             res(c);
-          },
-          err => rej(err)
+          }, err => rej(err)
         );
       });
+    }
+
+    function insertarItemListLD(lista) {
+      const items = lista.map((r, i) => ({
+        "@type": "ListItem",
+        "position": i+1,
+        "item": {"@type": "FoodEstablishment", "name": r.name, "url": `https://tudominio.com/index.html?restaurantId=${r.id}`}
+      }));
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": items
+      });
+      document.head.appendChild(script);
     }
 
     async function cargarRestaurantes() {
       try {
         const resp = await fetch('RESTAURANTES_ASIA.json');
         const data = await resp.json();
-
-        // Soporta ambos esquemas
-        let lista = Array.isArray(data.restaurants)
+        const lista = Array.isArray(data.restaurants)
           ? data.restaurants
-          : Array.isArray(data.itemListElement)
-            ? data.itemListElement.map(el => el.item || el)
-            : [];
-
-        restaurantesOriginal = lista
-          .map((r, i) => ({ ...r, id: i + 1 }))
-          .filter(r => r.geo?.latitude && r.geo?.longitude);
-
-        // Calcula rating promedio
-        await Promise.all(restaurantesOriginal.map(async r => {
+          : Array.isArray(data.itemListElement) ? data.itemListElement.map(el=>el.item||el) : [];
+        restaurantesOriginal = lista.map((r,i)=>({...r,id:i+1})).filter(r=>r.geo?.latitude&&r.geo?.longitude);
+        await Promise.all(restaurantesOriginal.map(async r=>{
           try {
             const rev = await fetch(`get_reviews.php?restaurantId=${r.id}`);
             const js = rev.ok ? await rev.json() : [];
-            r.avgRating = Array.isArray(js) && js.length
-              ? js.reduce((s,v) => s + (v.rating||0), 0) / js.length
-              : 0;
-          } catch {
-            r.avgRating = 0;
-          }
+            r.avgRating = js.length ? js.reduce((s,v)=>s+(v.rating||0),0)/js.length : 0;
+            r.reviewCount = js.length;
+          } catch { r.avgRating=0; r.reviewCount=0; }
         }));
-
-        restaurantesOriginal.sort((a,b) => a.name.localeCompare(b.name));
+        restaurantesOriginal.sort((a,b)=>a.name.localeCompare(b.name));
+        insertarItemListLD(restaurantesOriginal);
         actualizarVista(restaurantesOriginal);
-      } catch (e) {
+      } catch(e) {
         console.error(e);
-        document.getElementById('restaurante-container').innerHTML = `
-          <div class="col-lg-8">
-            <div class="alert alert-danger">
-              Error cargando restaurantes. Recarga la página.
-            </div>
-          </div>`;
+        document.getElementById('restaurante-container').innerHTML =
+          `<div class="col-lg-8"><div class="alert alert-danger">Error cargando restaurantes. Recarga la página.</div></div>`;
       }
     }
 
     async function ordenarRestaurantes() {
       const modo = document.getElementById('filtro-restaurantes').value;
       let lista = [...restaurantesOriginal];
-
-      if (modo === 'proximidad') {
+      if (modo==='proximidad') {
         try {
-          userCoords = JSON.parse(localStorage.getItem('userLocation')) 
-            || await obtenerUbicacion();
-          lista = lista
-            .map(r => ({
-              ...r,
-              distancia: calcularDistancia(
-                userCoords[0], userCoords[1],
-                parseFloat(r.geo.latitude), parseFloat(r.geo.longitude)
-              )
-            }))
-            .sort((a,b) => a.distancia - b.distancia);
-        } catch {
-          alert('Activa la geolocalización para usar este filtro.');
-          return;
-        }
-      } else if (modo === 'valoracion') {
-        lista.sort((a,b) => (b.avgRating||0) - (a.avgRating||0));
-      } else if (modo === 'abiertos') {
-        lista = lista.filter(r => estaAbiertoAhora(r.openingHoursSpecification) === true);
-      } else {
-        lista.sort((a,b) => a.name.localeCompare(b.name));
-      }
-
+          userCoords = JSON.parse(localStorage.getItem('userLocation'))||await obtenerUbicacion();
+          lista = lista.map(r=>({
+            ...r,
+            distancia: calcularDistancia(userCoords[0],userCoords[1],parseFloat(r.geo.latitude),parseFloat(r.geo.longitude))
+          })).sort((a,b)=>a.distancia-b.distancia);
+        } catch { alert('Activa la geolocalización para este filtro.'); return; }
+      } else if(modo==='valoracion') lista.sort((a,b)=>(b.avgRating||0)-(a.avgRating||0));
+      else if(modo==='abiertos') lista=lista.filter(r=>estaAbiertoAhora(r.openingHoursSpecification));
+      else lista.sort((a,b)=>a.name.localeCompare(b.name));
       actualizarVista(lista);
     }
 
     function actualizarVista(restaurantes) {
-      const cont = document.getElementById('restaurante-container');
-      cont.innerHTML = '';
-      restaurantes.forEach(r => {
-        const full = Math.floor(r.avgRating);
-        const half = (r.avgRating - full) >= 0.5 ? 1 : 0;
-        const empty = 5 - full - half;
-        let stars = '';
-        for (let i=0; i<full; i++) stars += '<i class="bi bi-star-fill text-warning"></i>';
-        if (half) stars += '<i class="bi bi-star-half text-warning"></i>';
-        for (let i=0; i<empty; i++) stars += '<i class="bi bi-star text-warning"></i>';
-
-        const dist = r.distancia != null
-          ? `<p class="text-secondary mb-2">
-               <i class="bi bi-signpost-split"></i> ${r.distancia.toFixed(1)} km
-             </p>`
-          : '';
-
-        const estado = estaAbiertoAhora(r.openingHoursSpecification);
-        const badge = estado === true
-          ? '<span class="badge bg-success">Abierto ahora</span>'
-          : estado === false
-            ? '<span class="badge bg-secondary">Cerrado ahora</span>'
-            : '<span class="badge bg-info">Horario no disponible</span>';
-
-        const imgName = r.name.replace(/\s+/g, '');
-        const col = document.createElement('div');
-        col.className = 'col-lg-10 mb-4';
-        col.innerHTML = `
-          <div class="card restaurant-card d-flex flex-row position-relative">
-            <div class="card-body flex-grow-1" style="margin-right:50px;">
-              <h3 class="card-title">
-                ${r.name}
-                <small class="ms-2">${stars}</small>
-              </h3>
-              ${dist}
-              <p class="mb-1">
-                <i class="bi bi-geo-alt"></i>
-                ${r.address.streetAddress}, ${r.address.postalCode} ${r.address.addressLocality}
-              </p>
-              ${r.telephone ? `
-                <p class="mb-1">
-                  <i class="bi bi-telephone"></i>
-                  <a href="tel:${r.telephone}">${r.telephone}</a>
-                </p>` : ''}
-              <div class="d-flex gap-2 mt-3">
-                <a href="${r.url}" target="_blank" class="btn btn-primary">
-                  <i class="bi bi-globe"></i> Visitar Web
-                </a>
-                <a href="reviews.html?restaurantId=${r.id}" class="btn btn-outline-primary">
-                  <i class="bi bi-chat-text"></i> Ver Reseñas
-                </a>
-              </div>
+      const cont = document.getElementById('restaurante-container'); cont.innerHTML='';
+      restaurantes.forEach(r=>{
+        const full=Math.floor(r.avgRating), half=(r.avgRating-full)>=0.5?1:0, empty=5-full-half;
+        let stars=''; for(let i=0;i<full;i++) stars+='<i class="bi bi-star-fill text-warning"></i>';
+        if(half) stars+='<i class="bi bi-star-half text-warning"></i>';
+        for(let i=0;i<empty;i++) stars+='<i class="bi bi-star text-warning"></i>';
+        const dist=r.distancia!=null?`<p class="text-secondary mb-2"><i class="bi bi-signpost-split"></i> ${r.distancia.toFixed(1)} km</p>`:'';
+        const estado=estaAbiertoAhora(r.openingHoursSpecification);
+        const badge=estado===true?'<span class="badge bg-success">Abierto ahora</span>':estado===false?'<span class="badge bg-secondary">Cerrado ahora</span>':'<span class="badge bg-info">Horario no disp.</span>';
+        const imgName=r.name.replace(/\s+/g,'');
+        const article=document.createElement('article'); article.className='col-lg-10 mb-4 restaurant-card d-flex flex-row position-relative';
+        article.innerHTML=`
+          <div class="card-body flex-grow-1" style="margin-right:50px;">
+            <h3 class="card-title">${r.name} <small class="ms-2">${stars}</small></h3>
+            ${dist}
+            <p class="mb-1"><i class="bi bi-geo-alt"></i> ${r.address.streetAddress}, ${r.address.postalCode} ${r.address.addressLocality}</p>
+            ${r.telephone?`<p class="mb-1"><i class="bi bi-telephone"></i> <a href="tel:${r.telephone}">${r.telephone}</a></p>`:''}
+            <div class="d-flex gap-2 mt-3">
+              <a href="${r.url}" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i> Visitar Web</a>
+              <a href="reviews.html?restaurantId=${r.id}" class="btn btn-outline-primary"><i class="bi bi-chat-text"></i> Ver Reseñas</a>
             </div>
-            <div class="image-container" style="flex-shrink:0;width:300px;">
-              <img src="assets/img/restaurantes/${imgName}.png"
-                   alt="${r.name}"
-                   class="h-100 w-100 object-fit-cover rounded-end"
-                   onerror="this.src='assets/img/restaurantes/placeholder.png'">
-            </div>
-            <div style="position:absolute; bottom:10px; right:320px;">
-              ${badge}
-            </div>
-          </div>`;
-        cont.appendChild(col);
+          </div>
+          <figure class="image-container" style="width:300px;flex-shrink:0;">
+            <img src="assets/img/restaurantes/${imgName}.png" alt="Foto de ${r.name}" class="w-100 h-100 object-fit-cover rounded-start" onerror="this.src='assets/img/restaurantes/placeholder.png'">
+            <figcaption>Foto de ${r.name}</figcaption>
+          </figure>
+          <div style="position:absolute; bottom:10px; right:320px;">${badge}</div>
+        `;
+        const ld=document.createElement('script'); ld.type='application/ld+json'; ld.text=JSON.stringify({
+          "@context":"https://schema.org","@type":"FoodEstablishment",name:r.name,image:`https://tudominio.com/assets/img/restaurantes/${imgName}.png`,address:{"@type":"PostalAddress","streetAddress":r.address.streetAddress,"addressLocality":r.address.addressLocality,"postalCode":r.address.postalCode,"addressCountry":"ES"},geo:{"@type":"GeoCoordinates","latitude":parseFloat(r.geo.latitude),"longitude":parseFloat(r.geo.longitude)},telephone:r.telephone,url:r.url,aggregateRating:{"@type":"AggregateRating","ratingValue":r.avgRating.toFixed(1),"reviewCount":r.reviewCount}
+        }); article.appendChild(ld); cont.appendChild(article);
       });
     }
 
     document.addEventListener('DOMContentLoaded', cargarRestaurantes);
   </script>
-</section>
 
-
-  <!-- =========================================
-       CAMBIAR INICIO DE SESIÓN POR CAMBIAR CUENTA
-       ========================================= -->
+<!-- =========================================
+     CAMBIAR INICIO DE SESIÓN POR CAMBIAR CUENTA
+========================================= -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const loginButton = document.getElementById('login-btn');
-      const currentUser = sessionStorage.getItem('currentUser');
-
-      if (currentUser) {
-        loginButton.textContent = 'Cambiar de Cuenta';
-        loginButton.href = 'login.html'; // Mantén el enlace a login.html o cámbialo si es necesario
-      }
-    });
-  </script>
-
-
+  document.addEventListener('DOMContentLoaded', () => {
+    const loginButton = document.getElementById('login-btn');
+    const currentUser = sessionStorage.getItem('currentUser');
+    if (currentUser) {
+      loginButton.textContent = 'Cambiar de Cuenta';
+      loginButton.href = 'login.html';
+    }
+  });
+</script>
 </main>
 
 
@@ -565,21 +509,14 @@
 </footer>
 
 
-  <!-- =========================================
-       SECCIÓN: Scripts - Vendor y Principal
-       ========================================= -->
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+<!-- =========================================
+     SECCIÓN: Scripts - Vendor y Principal
+========================================= -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
