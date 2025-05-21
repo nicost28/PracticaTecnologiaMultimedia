@@ -508,27 +508,62 @@
   </script>
 
 
+</main>
 
 
+<!-- =========================================
+     SECCIÓN: FOOTER - Pie de página con vídeo multimedia
+========================================= -->
+<footer id="footer" class="footer dark-background py-5 text-light">
+  <div class="container">
+    <div class="row align-items-center">
 
+      <!-- Columna izquierda: Logo + Autores -->
+      <div class="col-md-4 text-md-start text-center mb-4 mb-md-0">
+        <img src="assets/img/mallorcaAsiatico.svg" alt="Logo Mallorca Asiático" style="height: 60px;" class="mb-3">
+        <h5 class="fw-bold">Creado por:</h5>
+        <p class="mb-1">Daniel Llufriu</p>
+        <p class="mb-1">Nicolás Sanz</p>
+       <p class="mb-1">Estudiantes de Tecnologías Multimedia</p>
+      </div>
 
-  <!-- =========================================
-       SECCIÓN: FOOTER - Pie de página
-       ========================================= -->
-  <footer id="footer" class="footer dark-background">
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Delicious</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      <!-- Columna central: Video -->
+      <div class="col-md-4 text-center">
+        <figure class="footer-video mx-auto" style="max-width: 100%;">
+          <video
+            controls
+            preload="metadata"
+            width="100%"
+            height="auto"
+            poster="assets/img/sobreNosotros.jpg"
+            style="border-radius: 10px; max-width:100%; height:auto;">
+            <source src="assets/img/sobreNosotros.mp4" type="video/mp4">
+            <source src="assets/img/sobreNosotros.webm" type="video/webm">
+            Tu navegador no soporta el elemento <code>&lt;video&gt;</code>.
+          </video>
+          <figcaption class="mt-2 text-light">Sobre Nosotros</figcaption>
+        </figure>
+      </div>
+
+      <!-- Columna derecha: Explicación -->
+      <div class="col-md-4 text-md-start text-center mt-4 mt-md-0">
+        <h5 class="fw-bold">¿De qué trata esta web?</h5>
+        <p>
+          Mallorca Asiático es una plataforma interactiva que localiza y recomienda restaurantes asiáticos
+          en Mallorca. Permite ver su posición en el mapa, ordenarlos según valoración o cercanía,
+          y calcular rutas desde tu ubicación actual.
+        </p>
       </div>
     </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Créditos finales -->
+    <div class="text-center mt-5 small text-muted">
+      &copy; 2025 Mallorca Asiático — Todos los derechos reservados. |
+      Basado en el tema <a href="https://bootstrapmade.com/" class="text-decoration-underline text-reset" target="_blank">BootstrapMade</a>.
+    </div>
+  </div>
+</footer>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
 
   <!-- =========================================
        SECCIÓN: Scripts - Vendor y Principal
