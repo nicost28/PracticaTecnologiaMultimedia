@@ -33,6 +33,7 @@
 
   <!-- CSS Principal -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/restaurantes.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Delicious
@@ -103,23 +104,20 @@
 <!-- =========================================
      SUBSECCIÓN: Mapa 
 ========================================= -->
-<main class="main">
-  <div class="main-container">
-    <section id="why-us" class="why-us section">
-      <div class="container section-title" data-aos="fade-up" style="position: relative;">
-        <h2 style="margin-bottom: 40px;">
-          <span class="palabra-izq">Mapa de RRRRRRestaurantes</span>
-        </h2>
-        <button id="filtro-michelin" class="btn btn-sm btn-outline-danger" style="position: absolute; top: 0; right: 0;"
-          onclick="cambiarTipoRestaurantes()">
-          Ver restaurantes Estrella Michelin
-        </button>
-      </div>
+<section id="why-us" class="why-us section">
+  <!-- título centrado -->
+  <div class="map-title">Mapa de Restaurantes</div>
 
-  <div id="mi_mapa"
-       style="width: 90%; height: 600px; margin: 30px auto 20px auto; border-radius: 15px;">
+  <!-- contenedor genérico para mapa + botón -->
+  <div class="container-map">
+    <div id="mi_mapa"></div>
+    <button id="filtro-michelin"
+            class="btn btn-sm btn-outline-danger btn-map-toggle"
+            onclick="cambiarTipoRestaurantes()">
+      Ver restaurantes Estrella Michelin
+    </button>
   </div>
-
+</section>
   <script>
     const ORS_API_KEY = '5b3ce3597851110001cf6248e49a52899cc74f529a099cb78fdb53b0';
     const defaultCoords = [39.64213, 2.97582];
@@ -419,16 +417,15 @@
             ${dist}
             <p class="mb-1"><i class="bi bi-geo-alt"></i> ${r.address.streetAddress}, ${r.address.postalCode} ${r.address.addressLocality}</p>
             ${r.telephone?`<p class="mb-1"><i class="bi bi-telephone"></i> <a href="tel:${r.telephone}">${r.telephone}</a></p>`:''}
-            <div class="d-flex gap-2 mt-3">
+            <div class="d-flex gap-2 mt-3 align-items-center flex-wrap">
               <a href="${r.url}" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i> Visitar Web</a>
               <a href="reviews.html?restaurantId=${r.id}" class="btn btn-outline-primary"><i class="bi bi-chat-text"></i> Ver Reseñas</a>
+              <span class="restaurant-badge ms-2">${badge}</span>
             </div>
           </div>
           <figure class="image-container" style="width:300px;flex-shrink:0;">
             <img src="assets/img/restaurantes/${imgName}.png" alt="Foto de ${r.name}" class="w-100 h-100 object-fit-cover rounded-start" onerror="this.src='assets/img/restaurantes/placeholder.png'">
-            <figcaption>Foto de ${r.name}</figcaption>
           </figure>
-          <div style="position:absolute; bottom:10px; right:320px;">${badge}</div>
         `;
         const ld=document.createElement('script'); ld.type='application/ld+json'; ld.text=JSON.stringify({
           "@context":"https://schema.org","@type":"FoodEstablishment",name:r.name,image:`https://tudominio.com/assets/img/restaurantes/${imgName}.png`,address:{"@type":"PostalAddress","streetAddress":r.address.streetAddress,"addressLocality":r.address.addressLocality,"postalCode":r.address.postalCode,"addressCountry":"ES"},geo:{"@type":"GeoCoordinates","latitude":parseFloat(r.geo.latitude),"longitude":parseFloat(r.geo.longitude)},telephone:r.telephone,url:r.url,aggregateRating:{"@type":"AggregateRating","ratingValue":r.avgRating.toFixed(1),"reviewCount":r.reviewCount}
